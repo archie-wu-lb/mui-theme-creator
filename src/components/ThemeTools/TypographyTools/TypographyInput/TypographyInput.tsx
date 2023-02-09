@@ -1,20 +1,23 @@
-import { Button, Grid } from "@mui/material";
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { removeThemeOption, setThemeOption } from "src/state/actions";
-import { useThemeValueInfo } from "src/state/selectors";
-import { ThemeValueChangeEvent } from "../../events";
-import FontFamilyInput from "./FontFamilyInput";
-import FontSizeInput from "./FontSizeInput";
-import FontWeightInput from "./FontWeightInput";
-import LetterSpacingInput, { InputProps } from "./LetterSpacingInput";
-import LineHeightInput from "./LineHeightInput";
+import { Button, Grid } from "@mui/material"
+import React, { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import { removeThemeOption, setThemeOption } from "src/state/actions"
+import { useThemeValueInfo } from "src/state/selectors"
+import { ThemeValueChangeEvent } from "../../events"
+import FontFamilyInput from "./FontFamilyInput"
+import FontSizeInput from "./FontSizeInput"
+import FontWeightInput from "./FontWeightInput"
+import LetterSpacingInput, { InputProps } from "./LetterSpacingInput"
+import LineHeightInput from "./LineHeightInput"
 
 interface TypographyInputProps {
-  variantPath: string;
-  property: string;
+  variantPath: string
+  property: string
 }
-export default function TypographyInput({ variantPath, property }: TypographyInputProps) {
+export default function TypographyInput({
+  variantPath,
+  property,
+}: TypographyInputProps) {
   const path = `${variantPath}.${property}`
   const themeValueInfo = useThemeValueInfo(path)
   const dispatch = useDispatch()
@@ -27,9 +30,10 @@ export default function TypographyInput({ variantPath, property }: TypographyInp
     [dispatch]
   )
 
-  const handleReset = useCallback(() => dispatch(removeThemeOption(path)), [
-    dispatch,
-  ])
+  const handleReset = useCallback(
+    () => dispatch(removeThemeOption(path)),
+    [dispatch]
+  )
 
   return (
     <Grid container justifyContent="space-between" alignItems="baseline">
@@ -46,9 +50,9 @@ export default function TypographyInput({ variantPath, property }: TypographyInp
           disabled={!themeValueInfo.modifiedByUser}
           sx={{
             textTransform: "capitalize",
-            '& .Mui-disabled': {
-              fontStyle: "italic"
-            }
+            "& .Mui-disabled": {
+              fontStyle: "italic",
+            },
           }}
           onClick={handleReset}
         >
@@ -56,13 +60,16 @@ export default function TypographyInput({ variantPath, property }: TypographyInp
         </Button>
       </Grid>
     </Grid>
-  );
+  )
 }
 
-interface TypographyPropertyInputProps extends InputProps{
-  property: string;
+interface TypographyPropertyInputProps extends InputProps {
+  property: string
 }
-function TypographyPropertyInput({ property, ...props }: TypographyPropertyInputProps) {
+function TypographyPropertyInput({
+  property,
+  ...props
+}: TypographyPropertyInputProps) {
   switch (property) {
     case "fontFamily":
       return <FontFamilyInput {...props} />

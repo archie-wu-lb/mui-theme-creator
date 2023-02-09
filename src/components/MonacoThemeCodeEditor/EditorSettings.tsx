@@ -1,7 +1,10 @@
 import SettingsIcon from "@mui/icons-material/Settings"
 import {
   List,
-  ListItem, ListItemSecondaryAction, ListItemText, ListSubheader
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+  ListSubheader,
 } from "@mui/material"
 import Checkbox from "@mui/material/Checkbox"
 import IconButton from "@mui/material/IconButton"
@@ -11,7 +14,6 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { useUpdateEditorState } from "src/state/editor/actions"
 import { RootState } from "src/state/types"
-
 
 const EditorButton = () => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null)
@@ -25,28 +27,30 @@ const EditorButton = () => {
   }
   const open = Boolean(anchorEl)
 
-  return <>
-    <Tooltip title="Editor Settings">
-      <IconButton onClick={handleOpen} size="large">
-        <SettingsIcon />
-      </IconButton>
-    </Tooltip>
-    <Popover
-      open={open}
-      anchorEl={anchorEl}
-      onClose={handleClose}
-      anchorOrigin={{
-        vertical: "center",
-        horizontal: "center",
-      }}
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-    >
-      <EditorSettings />
-    </Popover>
-  </>;
+  return (
+    <>
+      <Tooltip title="Editor Settings">
+        <IconButton onClick={handleOpen} size="large">
+          <SettingsIcon />
+        </IconButton>
+      </Tooltip>
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "center",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <EditorSettings />
+      </Popover>
+    </>
+  )
 }
 export default EditorButton
 

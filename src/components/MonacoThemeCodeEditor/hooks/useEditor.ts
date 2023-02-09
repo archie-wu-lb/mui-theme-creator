@@ -19,10 +19,11 @@ const editorOptions: monaco.editor.IStandaloneEditorConstructionOptions = {
   // wordWrap: "on",
 }
 
-const languageDiagnosticsOptions: monaco.languages.typescript.DiagnosticsOptions = {
-  noSemanticValidation: false, // expose semantic errors when parsing
-  noSyntaxValidation: false, // expose syntax errors when parsing
-}
+const languageDiagnosticsOptions: monaco.languages.typescript.DiagnosticsOptions =
+  {
+    noSemanticValidation: false, // expose semantic errors when parsing
+    noSyntaxValidation: false, // expose syntax errors when parsing
+  }
 
 const languageCompilerOptions: monaco.languages.typescript.CompilerOptions = {
   target: monaco.languages.typescript.ScriptTarget.ES5,

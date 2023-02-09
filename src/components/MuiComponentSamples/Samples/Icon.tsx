@@ -1,6 +1,6 @@
-import { green } from "@mui/material/colors";
-import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
-import React from "react";
+import { green } from "@mui/material/colors"
+import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon"
+import React from "react"
 
 function HomeIcon(props: SvgIconProps) {
   return (
@@ -11,7 +11,6 @@ function HomeIcon(props: SvgIconProps) {
 }
 
 export default function IconExample() {
-
   return (
     <div>
       <HomeIcon sx={{ m: 2 }} />

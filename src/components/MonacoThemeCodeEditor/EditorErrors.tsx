@@ -1,13 +1,13 @@
-import CloseIcon from "@mui/icons-material/Close";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { Box, Collapse, Divider, IconButton, Snackbar } from "@mui/material";
-import Alert from '@mui/material/Alert';
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "src/state/types";
+import CloseIcon from "@mui/icons-material/Close"
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"
+import { Box, Collapse, Divider, IconButton, Snackbar } from "@mui/material"
+import Alert from "@mui/material/Alert"
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "src/state/types"
 
 interface EditorErrorsProps {
-  editorRef: React.RefObject<any>;
+  editorRef: React.RefObject<any>
 }
 
 const EditorErrors = ({ editorRef }: EditorErrorsProps) => {
@@ -37,8 +37,9 @@ const EditorErrors = ({ editorRef }: EditorErrorsProps) => {
       return error.messageText
     }
     const pos = model?.getPositionAt(error.start)
-    return `Line ${pos.lineNumber}:${pos.column}. ${error.messageText.messageText ?? error.messageText
-      }`
+    return `Line ${pos.lineNumber}:${pos.column}. ${
+      error.messageText.messageText ?? error.messageText
+    }`
   }
 
   const alertIcon = (
@@ -46,8 +47,8 @@ const EditorErrors = ({ editorRef }: EditorErrorsProps) => {
       onClick={handleExpand}
       size="small"
       sx={{
-        transition: (theme) => theme.transitions.create("transform"),
-        transform: expanded ? 'rotate(180deg)' : null
+        transition: theme => theme.transitions.create("transform"),
+        transform: expanded ? "rotate(180deg)" : null,
       }}
     >
       <ExpandLessIcon />
@@ -61,15 +62,20 @@ const EditorErrors = ({ editorRef }: EditorErrorsProps) => {
   )
 
   return (
-    <Box sx={{
-      position: "absolute",
-      bottom: 0,
-      width: 1,
-    }}>
-      <Snackbar open={open} sx={{
-        position: "relative",
+    <Box
+      sx={{
+        position: "absolute",
         bottom: 0,
-      }}>
+        width: 1,
+      }}
+    >
+      <Snackbar
+        open={open}
+        sx={{
+          position: "relative",
+          bottom: 0,
+        }}
+      >
         <Alert
           severity="error"
           icon={alertIcon}
@@ -77,20 +83,23 @@ const EditorErrors = ({ editorRef }: EditorErrorsProps) => {
           sx={{
             alignItems: "flex-end",
             width: 1,
-            '& .MuiAlert-icon': {
-              p: 0
+            "& .MuiAlert-icon": {
+              p: 0,
             },
-            '& .MuiAlert-message': {
+            "& .MuiAlert-message": {
               padding: "4px 0",
               flexGrow: 1,
-            }
+            },
           }}
         >
           <Collapse in={expanded}>
             {errors.map(e => (
-              <Box key={`${e.code}-${e.start}`} sx={{
-                fontWeight: (theme) => theme.typography.fontWeightBold,
-              }}>
+              <Box
+                key={`${e.code}-${e.start}`}
+                sx={{
+                  fontWeight: theme => theme.typography.fontWeightBold,
+                }}
+              >
                 {getErrorString(e)}
               </Box>
             ))}

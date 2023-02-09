@@ -43,9 +43,12 @@ const titles: Record<string, string> = {
 }
 
 interface Props {
-  value: number | string;
-  onChange: (event: Event | SyntheticEvent<Element, Event> | SelectChangeEvent<string>, value: number | string) => void;
-  property: string;
+  value: number | string
+  onChange: (
+    event: Event | SyntheticEvent<Element, Event> | SelectChangeEvent<string>,
+    value: number | string
+  ) => void
+  property: string
 }
 function FontSizeInput({ value, onChange, property }: Props) {
   const [fontSizeUnit, setFontSizeUnit] = useState<string | undefined>(
@@ -64,70 +67,73 @@ function FontSizeInput({ value, onChange, property }: Props) {
   const disabled = fontSizeUnit == null
   const sliderProps = disabled ? {} : fontSizeSliderProps[fontSizeUnit!]
 
-  return <>
-    <Grid container justifyContent="space-between" alignItems="baseline">
-      <Grid item>
-        <Typography variant="caption" color="textSecondary">
-          {titles[property]}
-        </Typography>
-      </Grid>
-      <Grid item>
-        {!disabled && (
-          <Typography display="inline" sx={{ mr: 1 }}>
-            {displayValue}
+  return (
+    <>
+      <Grid container justifyContent="space-between" alignItems="baseline">
+        <Grid item>
+          <Typography variant="caption" color="textSecondary">
+            {titles[property]}
           </Typography>
-        )}
-        <Select
-          disabled={disabled}
-          value={fontSizeUnit || ""}
-          variant="standard"
-          onChange={event => {
-            setFontSizeUnit(event.target.value)
-            onChange(
-              event,
-              event.target.value === "px"
-                ? displayValue
-                : `${displayValue}${event.target.value}`
-            )
-          }}
-          margin="dense"
-        >
-          {supportedFontSizeTypes.map(t => (
-            <MenuItem key={t} value={t}>
-              {t}
-            </MenuItem>
-          ))}
-        </Select>
+        </Grid>
+        <Grid item>
+          {!disabled && (
+            <Typography display="inline" sx={{ mr: 1 }}>
+              {displayValue}
+            </Typography>
+          )}
+          <Select
+            disabled={disabled}
+            value={fontSizeUnit || ""}
+            variant="standard"
+            onChange={event => {
+              setFontSizeUnit(event.target.value)
+              onChange(
+                event,
+                event.target.value === "px"
+                  ? displayValue
+                  : `${displayValue}${event.target.value}`
+              )
+            }}
+            margin="dense"
+          >
+            {supportedFontSizeTypes.map(t => (
+              <MenuItem key={t} value={t}>
+                {t}
+              </MenuItem>
+            ))}
+          </Select>
+        </Grid>
       </Grid>
-    </Grid>
-    <Slider
-      value={displayValue}
-      disabled={disabled}
-      {...sliderProps}
-      onChange={(event, newDisplayValue) => {
-        const newVal = Array.isArray(newDisplayValue) ? newDisplayValue[0] : newDisplayValue;
-        setDisplayValue(newVal)
-      }}
-      onChangeCommitted={(event, newValue) => {
-        const newVal = Array.isArray(newValue) ? newValue[0] : newValue;
+      <Slider
+        value={displayValue}
+        disabled={disabled}
+        {...sliderProps}
+        onChange={(event, newDisplayValue) => {
+          const newVal = Array.isArray(newDisplayValue)
+            ? newDisplayValue[0]
+            : newDisplayValue
+          setDisplayValue(newVal)
+        }}
+        onChangeCommitted={(event, newValue) => {
+          const newVal = Array.isArray(newValue) ? newValue[0] : newValue
 
-        onChange(
-          event,
-          fontSizeUnit === "px" ? newVal : `${newVal}${fontSizeUnit}`
-        )
-      }
-      }
-    />
-    {disabled && (
-      <Typography
-        color="textSecondary"
-        variant="caption"
-        sx={{ fontStyle: "italic" }}
-      >
-        Only em units supported. Use the code editor to configure other types.
-      </Typography>
-    )}
-  </>;
+          onChange(
+            event,
+            fontSizeUnit === "px" ? newVal : `${newVal}${fontSizeUnit}`
+          )
+        }}
+      />
+      {disabled && (
+        <Typography
+          color="textSecondary"
+          variant="caption"
+          sx={{ fontStyle: "italic" }}
+        >
+          Only em units supported. Use the code editor to configure other types.
+        </Typography>
+      )}
+    </>
+  )
 }
 
 export default FontSizeInput

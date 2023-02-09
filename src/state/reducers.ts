@@ -1,14 +1,13 @@
-import { createTheme, ThemeOptions } from "@mui/material";
-import { TypographyOptions } from "@mui/material/styles/createTypography";
-import deepmerge from "deepmerge";
-import { defaultThemeOptions } from "src/siteTheme";
-import { PreviewSize, RootState } from "src/state/types";
-import { generateThemeId, isSetEq } from "src/utils";
-import { loadFonts } from "./actions";
+import { createTheme, ThemeOptions } from "@mui/material"
+import { TypographyOptions } from "@mui/material/styles/createTypography"
+import deepmerge from "deepmerge"
+import { defaultThemeOptions } from "src/siteTheme"
+import { PreviewSize, RootState } from "src/state/types"
+import { generateThemeId, isSetEq } from "src/utils"
+import { loadFonts } from "./actions"
 import editorReducer, {
-  initialState as editorInitialState
-} from "./editor/reducers";
-
+  initialState as editorInitialState,
+} from "./editor/reducers"
 
 const defaultThemeId = generateThemeId({})
 
@@ -226,7 +225,7 @@ const getFontsFromThemeOptions = (
   previousFonts: string[] | undefined,
   loadedFonts: Set<string>
 ) => {
-  const typography: TypographyOptions | undefined = themeOptions.typography;
+  const typography: TypographyOptions | undefined = themeOptions.typography
 
   // get all defined fonts from the themeOptions
   const fontList: string[] = [
@@ -283,7 +282,10 @@ const createPreviewMuiTheme = (
   themeOptions: ThemeOptions,
   previewSize: PreviewSize
 ) => {
-  const spoofedBreakpoints: Record<string, { xs: number, sm: number, md: number, lg: number, xl: number}> = {
+  const spoofedBreakpoints: Record<
+    string,
+    { xs: number; sm: number; md: number; lg: number; xl: number }
+  > = {
     xs: { xs: 0, sm: 10000, md: 10001, lg: 10002, xl: 10003 },
     sm: { xs: 0, sm: 1, md: 10001, lg: 10002, xl: 10003 },
     md: { xs: 0, sm: 1, md: 2, lg: 10002, xl: 10003 },
@@ -291,12 +293,12 @@ const createPreviewMuiTheme = (
     xl: { xs: 0, sm: 1, md: 2, lg: 3, xl: 4 },
   }
 
-  if (!previewSize) return createTheme(themeOptions);
+  if (!previewSize) return createTheme(themeOptions)
 
   return createTheme(
     deepmerge(
       { breakpoints: { values: spoofedBreakpoints[previewSize] } },
       themeOptions
     )
-  );
+  )
 }

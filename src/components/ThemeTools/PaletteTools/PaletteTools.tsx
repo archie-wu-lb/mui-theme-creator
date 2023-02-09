@@ -10,6 +10,7 @@ const paletteColorTypes = [
   "warning",
   "info",
   "success",
+  "default",
 ]
 
 export default function PaletteTools() {

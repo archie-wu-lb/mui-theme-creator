@@ -109,6 +109,24 @@ export interface TypeText {
   secondary: string
   disabled: string
   hint: string
+  darkPrimary1: string
+  darkPrimary2: string
+  darkPrimary3: string
+  darkPrimary4: string
+  lightPrimary1: string
+  lightPrimary2: string
+  lightPrimary3: string
+  lightPrimary4: string
+  gary1: string
+  gary2: string
+  gary3: string
+  gary4: string
+  gary5: string
+  gary6: string
+  gary7: string
+  gary8: string
+  gary9: string
+  gary10: string
 }
 
 export interface TypeAction {
@@ -128,6 +146,9 @@ export interface TypeAction {
 export interface TypeBackground {
   default: string
   paper: string
+  surface: string
+  onSurface: string
+  top: string
 }
 
 export type TypeDivider = string
@@ -176,6 +197,7 @@ export interface Palette {
   grey: Color
   text: TypeText
   divider: TypeDivider
+  border: PaletteColor["primary"]
   action: TypeAction
   background: TypeBackground
   getContrastText: (background: string) => string

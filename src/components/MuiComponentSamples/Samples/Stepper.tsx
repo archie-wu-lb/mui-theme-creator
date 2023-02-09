@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import { Box } from "@mui/material"
+import Button from "@mui/material/Button"
+import Step from "@mui/material/Step"
+import StepLabel from "@mui/material/StepLabel"
+import Stepper from "@mui/material/Stepper"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 function getSteps() {
   return ["Select campaign settings", "Create an ad group", "Create an ad"]
@@ -103,9 +103,7 @@ export default function StepperExample() {
           </div>
         ) : (
           <div>
-            <Typography sx={{ my: 1 }}>
-              {getStepContent(activeStep)}
-            </Typography>
+            <Typography sx={{ my: 1 }}>{getStepContent(activeStep)}</Typography>
             <div>
               <Button
                 disabled={activeStep === 0}

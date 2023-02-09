@@ -161,9 +161,8 @@ export const useReadOnlyStyles = (editorRef: EditorRefType) => {
     applyStyles()
 
     // when model content changes, ensure that styles are reapplied
-    const modelContentChangeBinding = editorRef.current?.onDidChangeModelContent(
-      applyStyles
-    )
+    const modelContentChangeBinding =
+      editorRef.current?.onDidChangeModelContent(applyStyles)
 
     return () => {
       editorRef.current?.deltaDecorations(decorationIds, []) // wipe any existing decorations

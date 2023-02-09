@@ -57,26 +57,24 @@ export const useUpdateEditorState = () => {
  * version ID has changed
  * @param nextVersionId
  */
-export const updateVersionStates = (nextVersionId: number) => (
-  dispatch: Dispatch,
-  getState: Function
-) => {
-  const { initialVersion, lastVersion, currentVersion } = getState().editor
+export const updateVersionStates =
+  (nextVersionId: number) => (dispatch: Dispatch, getState: Function) => {
+    const { initialVersion, lastVersion, currentVersion } = getState().editor
 
-  let nextState: EditorStateOptions = {}
-  if (nextVersionId < currentVersion) {
-    // "undo" has been applied, enable redo
-    nextState = {
-      canRedo: true,
-      canUndo: nextVersionId !== initialVersion,
+    let nextState: EditorStateOptions = {}
+    if (nextVersionId < currentVersion) {
+      // "undo" has been applied, enable redo
+      nextState = {
+        canRedo: true,
+        canUndo: nextVersionId !== initialVersion,
+      }
+    } else {
+      nextState = {
+        canUndo: true,
+        canRedo: nextVersionId < lastVersion,
+        lastVersion: Math.max(currentVersion, lastVersion),
+      }
     }
-  } else {
-    nextState = {
-      canUndo: true,
-      canRedo: nextVersionId < lastVersion,
-      lastVersion: Math.max(currentVersion, lastVersion),
-    }
+    nextState.currentVersion = nextVersionId
+    dispatch(updateEditorState(nextState))
   }
-  nextState.currentVersion = nextVersionId
-  dispatch(updateEditorState(nextState))
-}

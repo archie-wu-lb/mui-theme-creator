@@ -46,7 +46,8 @@ function AddFontInput() {
                 href="https://fonts.google.com/"
                 target="_blank"
                 rel="noreferrer"
-                underline="hover">
+                underline="hover"
+              >
                 {`Google Font`}
               </Link>
             </>
@@ -69,7 +70,7 @@ function AddFontInput() {
         }}
       />
     </form>
-  );
+  )
 }
 
 export default AddFontInput

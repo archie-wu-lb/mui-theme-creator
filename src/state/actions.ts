@@ -1,4 +1,4 @@
-import { ThemeOptions } from '@mui/material';
+import { ThemeOptions } from "@mui/material"
 import { setByPath, removeByPath, getByPath, verbose } from "src/utils"
 import { defaultTheme, defaultThemeOptions } from "src/siteTheme"
 import { NewSavedTheme, PreviewSize } from "./types"
@@ -15,77 +15,81 @@ import { canSave } from "./selectors"
  * and should be removed to tidy the theme code
  * @param path - the path to remove from the themeOptions
  */
-export const removeThemeOption = (path: string) => (dispatch: Function, getState: Function) => {
-  if (checkIfUserAllowsOverwrite(getState())) {
-    let updatedThemeOptions: ThemeOptions
+export const removeThemeOption =
+  (path: string) => (dispatch: Function, getState: Function) => {
+    if (checkIfUserAllowsOverwrite(getState())) {
+      let updatedThemeOptions: ThemeOptions
 
-    // path with ".<name>" removed
-    const parentPath = path.substring(0, path.lastIndexOf("."))
+      // path with ".<name>" removed
+      const parentPath = path.substring(0, path.lastIndexOf("."))
 
-    // paths ending in "main" must be declared
-    // replace with the value from the default Theme object
-    if (path.endsWith("main")) {
-      const defaultValueForPath = getByPath(defaultTheme, path)
-      updatedThemeOptions = setByPath(
+      // paths ending in "main" must be declared
+      // replace with the value from the default Theme object
+      if (path.endsWith("main")) {
+        const defaultValueForPath = getByPath(defaultTheme, path)
+        updatedThemeOptions = setByPath(
+          getState().themeOptions,
+          path,
+          defaultValueForPath
+        )
+      } else {
+        // remove the key from the themeOptions (immutably)
+        updatedThemeOptions = removeByPath(getState().themeOptions, path)
+      }
+
+      return dispatch({
+        type: "UPDATE_THEME",
+        themeOptions: updatedThemeOptions,
+      })
+    }
+  }
+
+export const removeThemeOptions =
+  (configs: { path: string; value: any }[]) =>
+  (dispatch: Function, getState: Function) => {
+    if (checkIfUserAllowsOverwrite(getState())) {
+      let updatedThemeOptions = getState().themeOptions
+      configs.forEach(
+        ({ path, value }) =>
+          (updatedThemeOptions = removeByPath(updatedThemeOptions, path))
+      )
+      return dispatch({
+        type: "UPDATE_THEME",
+        themeOptions: updatedThemeOptions,
+      })
+    }
+  }
+
+export const setThemeOption =
+  (path: string, value: any) => (dispatch: Function, getState: Function) => {
+    if (checkIfUserAllowsOverwrite(getState())) {
+      const updatedThemeOptions = setByPath(
         getState().themeOptions,
         path,
-        defaultValueForPath
+        value
       )
-    } else {
-      // remove the key from the themeOptions (immutably)
-      updatedThemeOptions = removeByPath(getState().themeOptions, path)
+      return dispatch({
+        type: "UPDATE_THEME",
+        themeOptions: updatedThemeOptions,
+      })
     }
-
-    return dispatch({
-      type: "UPDATE_THEME",
-      themeOptions: updatedThemeOptions,
-    })
   }
-}
 
-export const removeThemeOptions = (configs: { path: string; value: any }[]) => (
-  dispatch: Function,
-  getState: Function
-) => {
-  if (checkIfUserAllowsOverwrite(getState())) {
-    let updatedThemeOptions = getState().themeOptions
-    configs.forEach(
-      ({ path, value }) =>
-        (updatedThemeOptions = removeByPath(updatedThemeOptions, path))
-    )
-    return dispatch({
-      type: "UPDATE_THEME",
-      themeOptions: updatedThemeOptions,
-    })
+export const setThemeOptions =
+  (configs: { path: string; value: any }[]) =>
+  (dispatch: Function, getState: Function) => {
+    if (checkIfUserAllowsOverwrite(getState())) {
+      let updatedThemeOptions = getState().themeOptions
+      configs.forEach(
+        ({ path, value }) =>
+          (updatedThemeOptions = setByPath(updatedThemeOptions, path, value))
+      )
+      return dispatch({
+        type: "UPDATE_THEME",
+        themeOptions: updatedThemeOptions,
+      })
+    }
   }
-}
-
-export const setThemeOption = (path: string, value: any) => (dispatch: Function, getState: Function) => {
-  if (checkIfUserAllowsOverwrite(getState())) {
-    const updatedThemeOptions = setByPath(getState().themeOptions, path, value)
-    return dispatch({
-      type: "UPDATE_THEME",
-      themeOptions: updatedThemeOptions,
-    })
-  }
-}
-
-export const setThemeOptions = (configs: { path: string; value: any }[]) => (
-  dispatch: Function,
-  getState: Function
-) => {
-  if (checkIfUserAllowsOverwrite(getState())) {
-    let updatedThemeOptions = getState().themeOptions
-    configs.forEach(
-      ({ path, value }) =>
-        (updatedThemeOptions = setByPath(updatedThemeOptions, path, value))
-    )
-    return dispatch({
-      type: "UPDATE_THEME",
-      themeOptions: updatedThemeOptions,
-    })
-  }
-}
 
 /**
  * Check if the code editor has unsaved work, and if so, prompt the user
@@ -109,7 +113,9 @@ export const addNewSavedTheme = (name: string) => ({
   },
 })
 
-export const addNewDefaultTheme = (newSavedTheme: NewSavedTheme | Omit<NewSavedTheme, "lastUpdated">) => ({
+export const addNewDefaultTheme = (
+  newSavedTheme: NewSavedTheme | Omit<NewSavedTheme, "lastUpdated">
+) => ({
   type: "ADD_NEW_THEME",
   savedTheme: newSavedTheme,
 })
@@ -122,13 +128,14 @@ export const loadSavedTheme = (themeId: string) => ({
   themeId,
 })
 
-export const removeSavedTheme = (themeId: string) => (dispatch: Function, getState: Function) => {
-  // don't remove the theme unless it is not the current theme
-  if (getState().themeId === themeId) {
-    return false
+export const removeSavedTheme =
+  (themeId: string) => (dispatch: Function, getState: Function) => {
+    // don't remove the theme unless it is not the current theme
+    if (getState().themeId === themeId) {
+      return false
+    }
+    return dispatch({ type: "REMOVE_THEME", themeId })
   }
-  return dispatch({ type: "REMOVE_THEME", themeId })
-}
 
 export const renameSavedTheme = (themeId: string, name: string) => ({
   type: "RENAME_THEME",
@@ -168,17 +175,18 @@ export async function loadFonts(fonts: string[]) {
 /**
  * Load fonts using webfontloader, then add those fonts to the redux store
  */
-export const addFonts = (fonts: string[]) => async (dispatch: Function, getState?: Function) => {
-  const fontsLoaded: boolean = await loadFonts(fonts)
-  if (fontsLoaded) {
-    return dispatch({
-      type: "FONTS_LOADED",
-      fonts,
-    })
-  } else {
-    return false
+export const addFonts =
+  (fonts: string[]) => async (dispatch: Function, getState?: Function) => {
+    const fontsLoaded: boolean = await loadFonts(fonts)
+    if (fontsLoaded) {
+      return dispatch({
+        type: "FONTS_LOADED",
+        fonts,
+      })
+    } else {
+      return false
+    }
   }
-}
 
 /**
  * Set the active tab for the editor page

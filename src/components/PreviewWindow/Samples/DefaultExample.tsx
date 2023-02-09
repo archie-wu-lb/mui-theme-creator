@@ -1,18 +1,26 @@
-import BuildIcon from "@mui/icons-material/Build";
-import FontIcon from "@mui/icons-material/FontDownload";
-import PaletteIcon from "@mui/icons-material/Palette";
-import StarIcon from "@mui/icons-material/Star";
-import TypographyIcon from "@mui/icons-material/TextFields";
+import BuildIcon from "@mui/icons-material/Build"
+import FontIcon from "@mui/icons-material/FontDownload"
+import PaletteIcon from "@mui/icons-material/Palette"
+import StarIcon from "@mui/icons-material/Star"
+import TypographyIcon from "@mui/icons-material/TextFields"
 import {
-  BottomNavigationAction, Box, Card,
-  CardContent, Divider, Grid, Link, List,
+  BottomNavigationAction,
+  Box,
+  Card,
+  CardContent,
+  Divider,
+  Grid,
+  Link,
+  List,
   ListItem,
   ListItemIcon,
-  ListItemText, Tooltip, Typography
-} from "@mui/material";
-import React from "react";
-import { TutorialLink } from "src/components/Tutorial/TutorialButton";
-import wrapTooltip from "../wrapTooltip";
+  ListItemText,
+  Tooltip,
+  Typography,
+} from "@mui/material"
+import React from "react"
+import { TutorialLink } from "src/components/Tutorial/TutorialButton"
+import wrapTooltip from "../wrapTooltip"
 
 const WrappedTypography = wrapTooltip(Typography, "Typography")
 
@@ -55,7 +63,8 @@ const DefaultExample = () => {
                     href="https://fonts.google.com/"
                     target="_blank"
                     rel="noreferrer"
-                    underline="hover">
+                    underline="hover"
+                  >
                     {`Google Fonts`}
                   </Link>
                   {` to use on typography elements on this page`}
@@ -97,7 +106,8 @@ const DefaultExample = () => {
                   href="https://microsoft.github.io/monaco-editor/"
                   target="_blank"
                   rel="noreferrer"
-                  underline="hover">
+                  underline="hover"
+                >
                   Monaco Editor
                 </Link>
               </ListItem>
@@ -125,7 +135,8 @@ const DefaultExample = () => {
                   target="_blank"
                   rel="noreferrer"
                   variant="h6"
-                  underline="hover">
+                  underline="hover"
+                >
                   Web Font Loader
                 </Link>
               </ListItem>
@@ -166,15 +177,15 @@ const DefaultExample = () => {
         </Fab>
       </Tooltip> */}
     </Box>
-  );
+  )
 }
 
 export default DefaultExample
 
 interface FeatureCardProps {
-  icon: React.ReactElement;
-  title: string;
-  children: React.ReactNode;
+  icon: React.ReactElement
+  title: string
+  children: React.ReactNode
 }
 const FeatureCard = ({ icon, title, children }: FeatureCardProps) => (
   <Card>
@@ -198,11 +209,15 @@ const FeatureCard = ({ icon, title, children }: FeatureCardProps) => (
 )
 
 interface ThemeToolUsageListItemProps {
-  icon: React.ReactElement;
-  label: string;
-  children: React.ReactNode;
+  icon: React.ReactElement
+  label: string
+  children: React.ReactNode
 }
-const ThemeToolUsageListItem = ({ label, icon, children }: ThemeToolUsageListItemProps) => (
+const ThemeToolUsageListItem = ({
+  label,
+  icon,
+  children,
+}: ThemeToolUsageListItemProps) => (
   <ListItem>
     <ListItemIcon>
       <BottomNavigationAction
@@ -212,7 +227,7 @@ const ThemeToolUsageListItem = ({ label, icon, children }: ThemeToolUsageListIte
         sx={{
           color: "inherit",
           p: 0,
-          pr: '4px',
+          pr: "4px",
           minWidth: 70,
         }}
       />
@@ -224,8 +239,8 @@ const ThemeToolUsageListItem = ({ label, icon, children }: ThemeToolUsageListIte
 )
 
 interface TabUsageListItemProps {
-  label: string;
-  children: React.ReactNode;
+  label: string
+  children: React.ReactNode
 }
 const TabUsageListItem = ({ label, children }: TabUsageListItemProps) => (
   <ListItem>
@@ -234,7 +249,7 @@ const TabUsageListItem = ({ label, children }: TabUsageListItemProps) => (
         variant="overline"
         color="primary"
         sx={{
-          pr: '4px',
+          pr: "4px",
           minWidth: 110,
           textAlign: "center",
         }}

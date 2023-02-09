@@ -1,9 +1,9 @@
-import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import React from "react";
+import FormControl from "@mui/material/FormControl"
+import FormHelperText from "@mui/material/FormHelperText"
+import InputLabel from "@mui/material/InputLabel"
+import MenuItem from "@mui/material/MenuItem"
+import Select, { SelectChangeEvent } from "@mui/material/Select"
+import React from "react"
 
 const styles = {
   formControl: {
@@ -161,7 +161,7 @@ export default function SelectExample() {
           autoWidth
         >
           <MenuItem value="">
-            <em>None</em> 
+            <em>None</em>
           </MenuItem>
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>

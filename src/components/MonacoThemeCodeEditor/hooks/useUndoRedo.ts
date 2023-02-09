@@ -42,9 +42,8 @@ const useTrackUndoRedoState = (editorRef: EditorRefType) => {
 
   useEffect(() => {
     // set up event handler for editor changes
-    const modelContentChangeBinding = editorRef.current?.onDidChangeModelContent(
-      handleContentChange
-    )
+    const modelContentChangeBinding =
+      editorRef.current?.onDidChangeModelContent(handleContentChange)
 
     return () => {
       modelContentChangeBinding?.dispose()

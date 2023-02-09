@@ -18,7 +18,7 @@ const loadedFontContentStyle = {
   },
   maxHeight: 200,
   overflowY: "auto",
-};
+}
 
 function FontTools() {
   const loadedFonts = useSelector((state: RootState) => state.loadedFonts)
@@ -42,7 +42,10 @@ function FontTools() {
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded={currentFonts.length < 5}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '0.875rem' }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          sx={{ fontSize: "0.875rem" }}
+        >
           {`Fonts used in current theme (${currentFonts.length})`}
         </AccordionSummary>
         <AccordionDetails>
@@ -59,7 +62,10 @@ function FontTools() {
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '0.875rem' }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          sx={{ fontSize: "0.875rem" }}
+        >
           {`Loaded and Available Fonts (${loadedFonts.size})`}
         </AccordionSummary>
         <AccordionDetails>

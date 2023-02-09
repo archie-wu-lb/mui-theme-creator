@@ -1,8 +1,13 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Accordion, AccordionDetails, AccordionSummary, Divider } from "@mui/material";
-import React from "react";
-import TypographyInput from "./TypographyInput/TypographyInput";
-import TypographySampleArea from "./TypographySampleArea";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Divider,
+} from "@mui/material"
+import React from "react"
+import TypographyInput from "./TypographyInput/TypographyInput"
+import TypographySampleArea from "./TypographySampleArea"
 
 const defaultGlobalProperties = [
   "fontFamily",
@@ -22,14 +27,14 @@ function TypographyGlobals() {
         sx={{
           position: "sticky",
           top: 0,
-          bgcolor: 'background.paper',
-          zIndex: (theme) => theme.zIndex.drawer + 3,
+          bgcolor: "background.paper",
+          zIndex: theme => theme.zIndex.drawer + 3,
           borderBottom: 1,
-          borderBottomColor: 'divider',
-          '& .MuiAccordionSummary-content': {
+          borderBottomColor: "divider",
+          "& .MuiAccordionSummary-content": {
             maxWidth: "100%",
             overflow: "auto",
-          }
+          },
         }}
       >
         <TypographySampleArea
@@ -38,18 +43,17 @@ function TypographyGlobals() {
           paperText="Styles"
         />
       </AccordionSummary>
-      <AccordionDetails sx={{
-        flexDirection: "column",
-        "&> *": {
-          mb: 2,
-        },
-      }}>
+      <AccordionDetails
+        sx={{
+          flexDirection: "column",
+          "&> *": {
+            mb: 2,
+          },
+        }}
+      >
         {defaultGlobalProperties.map(property => (
           <div key={`base-text-${property}`}>
-            <TypographyInput
-              variantPath="typography"
-              property={property}
-            />
+            <TypographyInput variantPath="typography" property={property} />
             <Divider />
           </div>
         ))}

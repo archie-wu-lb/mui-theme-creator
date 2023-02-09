@@ -1,18 +1,23 @@
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
-import { Archive, Social } from "./Blog";
+import Grid from "@mui/material/Grid"
+import Link from "@mui/material/Link"
+import Paper from "@mui/material/Paper"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
+import { Archive, Social } from "./Blog"
 
 interface Props {
-  archives: Archive[];
-  description: string;
-  title: string;
+  archives: Archive[]
+  description: string
+  title: string
   social: Social[]
 }
-export default function BlogSidebar({ archives, description, social, title }: Props) {
+export default function BlogSidebar({
+  archives,
+  description,
+  social,
+  title,
+}: Props) {
   return (
     <Grid item xs={12} md={4}>
       <Paper elevation={0} sx={{ p: 2 }}>
@@ -26,11 +31,7 @@ export default function BlogSidebar({ archives, description, social, title }: Pr
         </Tooltip>
       </Paper>
       <Tooltip title={`<Typography variant="h6">`} placement="left" arrow>
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{ mt: 3 }}
-        >
+        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
           Archives
         </Typography>
       </Tooltip>
@@ -41,17 +42,18 @@ export default function BlogSidebar({ archives, description, social, title }: Pr
           placement="left"
           arrow
         >
-          <Link display="block" variant="body1" href={archive.url} underline="hover">
+          <Link
+            display="block"
+            variant="body1"
+            href={archive.url}
+            underline="hover"
+          >
             {archive.title}
           </Link>
         </Tooltip>
       ))}
       <Tooltip title={`<Typography variant="h6">`} placement="left" arrow>
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{ mt: 3 }}
-        >
+        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
           Social
         </Typography>
       </Tooltip>
@@ -73,5 +75,5 @@ export default function BlogSidebar({ archives, description, social, title }: Pr
         </Tooltip>
       ))}
     </Grid>
-  );
+  )
 }

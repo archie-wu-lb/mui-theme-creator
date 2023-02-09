@@ -1,21 +1,21 @@
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import { SvgIconTypeMap } from "@mui/material";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import React from "react";
-import BlogFooter from "./BlogFooter";
-import BlogHeader from "./BlogHeader";
-import BlogSidebar from "./BlogSidebar";
-import FeaturedPost from "./FeaturedPost";
-import Main from "./Main";
-import MainFeaturedPost from "./MainFeaturedPost";
+import FacebookIcon from "@mui/icons-material/Facebook"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import { SvgIconTypeMap } from "@mui/material"
+import Container from "@mui/material/Container"
+import Grid from "@mui/material/Grid"
+import { OverridableComponent } from "@mui/material/OverridableComponent"
+import React from "react"
+import BlogFooter from "./BlogFooter"
+import BlogHeader from "./BlogHeader"
+import BlogSidebar from "./BlogSidebar"
+import FeaturedPost from "./FeaturedPost"
+import Main from "./Main"
+import MainFeaturedPost from "./MainFeaturedPost"
 
 export type Section = {
-  title: string;
-  url: string;
+  title: string
+  url: string
 }
 const sections: Section[] = [
   { title: "Technology", url: "#" },
@@ -31,12 +31,12 @@ const sections: Section[] = [
 ]
 
 export type Post = {
-  title: string;
-  date: string;
-  description: string;
-  image: string;
-  imageText: string;
-  linkText?: string;
+  title: string
+  date: string
+  description: string
+  image: string
+  imageText: string
+  linkText?: string
 }
 
 const mainFeaturedPost: Post = {
@@ -68,20 +68,20 @@ const featuredPosts: Post[] = [
 ]
 
 export type Archive = {
-  title: string;
-  url: string;
+  title: string
+  url: string
 }
 
 export type Social = {
-  icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string; };
-  name: string;
+  icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string }
+  name: string
 }
 
 interface SideBar {
-  title: string;
-  description: string;
-  archives: Archive[];
-  social: Social[];
+  title: string
+  description: string
+  archives: Archive[]
+  social: Social[]
 }
 const sidebar: SideBar = {
   title: "About",

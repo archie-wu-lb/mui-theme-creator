@@ -1,7 +1,13 @@
 import AddIcon from "@mui/icons-material/Add"
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"
 import RemoveIcon from "@mui/icons-material/Remove"
-import { Accordion, AccordionSummary, Link, Tooltip, Typography } from "@mui/material"
+import {
+  Accordion,
+  AccordionSummary,
+  Link,
+  Tooltip,
+  Typography,
+} from "@mui/material"
 import React, { useCallback } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { removeThemeOptions, setThemeOptions } from "src/state/actions"
@@ -48,10 +54,17 @@ const SnippetItem = ({ snippet }: SnippetItemProps) => {
     <div>
       <div>{info}</div>
       {docs && (
-        <Link href={docs} target="_blank" rel="noreferrer" underline="hover">{`Theme ${title} Docs`}</Link>
+        <Link
+          href={docs}
+          target="_blank"
+          rel="noreferrer"
+          underline="hover"
+        >{`Theme ${title} Docs`}</Link>
       )}
     </div>
-  ) : '';
+  ) : (
+    ""
+  )
 
   return (
     <Accordion
@@ -60,10 +73,13 @@ const SnippetItem = ({ snippet }: SnippetItemProps) => {
     >
       <AccordionSummary>
         {isSnippetIncluded ? <RemoveIcon /> : <AddIcon />}
-        <Typography variant="body2" sx={{
-          ml: 1,
-          flexGrow: 1,
-        }}>
+        <Typography
+          variant="body2"
+          sx={{
+            ml: 1,
+            flexGrow: 1,
+          }}
+        >
           {title}
         </Typography>
         {info && (

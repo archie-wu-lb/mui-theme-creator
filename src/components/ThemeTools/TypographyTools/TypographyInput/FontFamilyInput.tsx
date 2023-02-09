@@ -81,7 +81,8 @@ function FontSelector({ onSelectFont }) {
             setAnchorEl(event.currentTarget)
           }
           aria-haspopup="true"
-          size="large">
+          size="large"
+        >
           <AddIcon />
         </IconButton>
         <Menu
@@ -101,5 +102,5 @@ function FontSelector({ onSelectFont }) {
         </Menu>
       </div>
     </Tooltip>
-  );
+  )
 }

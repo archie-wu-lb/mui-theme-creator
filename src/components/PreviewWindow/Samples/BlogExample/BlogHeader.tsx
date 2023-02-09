@@ -1,21 +1,21 @@
-import SearchIcon from "@mui/icons-material/Search";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
-import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
-import { Section } from "./Blog";
+import SearchIcon from "@mui/icons-material/Search"
+import Button from "@mui/material/Button"
+import IconButton from "@mui/material/IconButton"
+import Link from "@mui/material/Link"
+import Toolbar from "@mui/material/Toolbar"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
+import { Section } from "./Blog"
 
 interface Props {
-  sections: Section[],
-  title: string,
+  sections: Section[]
+  title: string
 }
 export default function BlogHeader({ sections, title }: Props) {
   return (
     <React.Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderBottomColor: 'divider', }}>
+      <Toolbar sx={{ borderBottom: 1, borderBottomColor: "divider" }}>
         <Tooltip title={`<Button color="default" size="small">`} arrow>
           <Button size="small">Subscribe</Button>
         </Tooltip>
@@ -68,12 +68,13 @@ export default function BlogHeader({ sections, title }: Props) {
                 p: 1,
                 flexShrink: 0,
               }}
-              underline="hover">
+              underline="hover"
+            >
               {section.title}
             </Link>
           </Tooltip>
         ))}
       </Toolbar>
     </React.Fragment>
-  );
+  )
 }

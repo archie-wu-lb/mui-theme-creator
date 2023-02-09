@@ -1,10 +1,10 @@
-import AddIcon from "@mui/icons-material/Add";
-import { Box, createTheme, Theme, ThemeOptions } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import AddIcon from "@mui/icons-material/Add"
+import { Box, createTheme, Theme, ThemeOptions } from "@mui/material"
+import React, { useEffect, useState } from "react"
 
 interface Props {
-  themeOptions: ThemeOptions;
-  large?: boolean;
+  themeOptions: ThemeOptions
+  large?: boolean
 }
 
 function ThemeThumbnail({ themeOptions, large = false }: Props) {
@@ -15,25 +15,28 @@ function ThemeThumbnail({ themeOptions, large = false }: Props) {
   const { background, primary, secondary, text } = themeObject?.palette || {}
 
   return (
-    <Box sx={{
-      height: large ? 200 : 100,
-      maxWidth: "85vw",
-      width: large ? ((1600 / 9) * 2) : (1600 / 9),
-      position: "relative",
-      fontSize: large ? 28 : null,
-      bgcolor: background?.default,
-      color: text?.primary,
-    }}>
+    <Box
+      sx={{
+        height: large ? 200 : 100,
+        maxWidth: "85vw",
+        width: large ? (1600 / 9) * 2 : 1600 / 9,
+        position: "relative",
+        fontSize: large ? 28 : null,
+        bgcolor: background?.default,
+        color: text?.primary,
+      }}
+    >
       <Box
         sx={{
           height: "15%",
           width: "100%",
-          pl: '4px',
+          pl: "4px",
           fontSize: "75%",
           bgcolor: primary?.main,
         }}
       >
-        <Box component="span"
+        <Box
+          component="span"
           sx={{
             color: primary?.contrastText,
           }}
@@ -41,20 +44,29 @@ function ThemeThumbnail({ themeOptions, large = false }: Props) {
           Title
         </Box>
       </Box>
-      <Box component="span" sx={{
-        fontSize: "60%",
-        pl: '4px',
-      }}>Content</Box>
-      <Box sx={{
+      <Box
+        component="span"
+        sx={{
+          fontSize: "60%",
+          pl: "4px",
+        }}
+      >
+        Content
+      </Box>
+      <Box
+        sx={{
           height: "50%",
-          m: '4px',
+          m: "4px",
           bgcolor: background?.paper,
-        }}>
+        }}
+      >
         <Box sx={{ fontSize: "55%" }}>Card Header</Box>
-        <Box sx={{
+        <Box
+          sx={{
             fontSize: "45%",
             color: text?.secondary,
-          }}>
+          }}
+        >
           Card Subheader
         </Box>
       </Box>
@@ -75,10 +87,12 @@ function ThemeThumbnail({ themeOptions, large = false }: Props) {
           color: secondary?.contrastText,
         }}
       >
-        <AddIcon sx={{
-          height: large ? 36 : 18,
-          width: large ? 36 : 18,
-        }} />
+        <AddIcon
+          sx={{
+            height: large ? 36 : 18,
+            width: large ? 36 : 18,
+          }}
+        />
       </Box>
     </Box>
   )

@@ -22,7 +22,7 @@ function AddThemeButton() {
     setOpen(false)
   }
 
-  const handleFocus = event => event.target.select()
+  const handleFocus = (event: any) => event.target.select()
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {

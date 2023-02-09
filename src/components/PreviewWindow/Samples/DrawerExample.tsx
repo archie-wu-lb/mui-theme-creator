@@ -37,17 +37,18 @@ const DrawerExample = ({ open, onClose }: Props) => {
         BackdropProps: {
           sx: {
             position: "absolute",
-          }
+          },
         },
       }}
       sx={{
         position: "relative",
         whiteSpace: "nowrap",
         width: drawerWidth,
-        transition: (theme) => theme.transitions.create("width", {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
+        transition: theme =>
+          theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
       }}
     >
       <Toolbar />

@@ -1,8 +1,8 @@
-import CloseIcon from "@mui/icons-material/Close";
-import { Box, IconButton } from "@mui/material";
-import Button from "@mui/material/Button";
-import SnackbarContent from "@mui/material/SnackbarContent";
-import React from "react";
+import CloseIcon from "@mui/icons-material/Close"
+import { Box, IconButton } from "@mui/material"
+import Button from "@mui/material/Button"
+import SnackbarContent from "@mui/material/SnackbarContent"
+import React from "react"
 
 const action = (
   <Button color="secondary" size="small">
@@ -12,12 +12,14 @@ const action = (
 
 export default function SnackbarExample() {
   return (
-    <Box sx={{
-      maxWidth: 600,
-      "& > * + *": {
-        mt: 2,
-      },
-    }}>
+    <Box
+      sx={{
+        maxWidth: 600,
+        "& > * + *": {
+          mt: 2,
+        },
+      }}
+    >
       <SnackbarContent message="I love snacks." action={action} />
       <SnackbarContent
         message={

@@ -1,10 +1,17 @@
-import { Box, Button, ButtonBase, Grid, Popover, Typography } from "@mui/material";
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { addNewDefaultTheme } from "../../state/actions";
-import { NewSavedTheme } from "../../state/types";
-import defaultThemes, { defaultThemesId } from "./DefaultThemes";
-import ThemeThumbnail from "./ThemeThumbnail";
+import {
+  Box,
+  Button,
+  ButtonBase,
+  Grid,
+  Popover,
+  Typography,
+} from "@mui/material"
+import React, { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import { addNewDefaultTheme } from "../../state/actions"
+import { NewSavedTheme } from "../../state/types"
+import defaultThemes, { defaultThemesId } from "./DefaultThemes"
+import ThemeThumbnail from "./ThemeThumbnail"
 
 function DefaultThemesComponent() {
   const dispatch = useDispatch()
@@ -64,29 +71,35 @@ function DefaultThemesComponent() {
         >
           {defaultThemes.map(t => (
             <Grid item key={t.name} onClick={() => handleClickTheme(t)}>
-              <ButtonBase sx={{
-                display: "flex",
-                flexDirection: "column",
-              }}>
-                <Box sx={{
-                  position: "relative",
-                  "&:hover > .MuiBox-root:last-child": {
-                    display: "flex",
-                  },
-                }}>
+              <ButtonBase
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "relative",
+                    "&:hover > .MuiBox-root:last-child": {
+                      display: "flex",
+                    },
+                  }}
+                >
                   <ThemeThumbnail themeOptions={t.themeOptions} />
-                  <Box sx={{
-                    position: "absolute",
-                    top: 0,
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    backdropFilter: "blur(2px) saturate(30%) brightness(40%)",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    display: "none",
-                  }}>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      right: 0,
+                      left: 0,
+                      backdropFilter: "blur(2px) saturate(30%) brightness(40%)",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "none",
+                    }}
+                  >
                     <Typography>Click to add</Typography>
                   </Box>
                 </Box>

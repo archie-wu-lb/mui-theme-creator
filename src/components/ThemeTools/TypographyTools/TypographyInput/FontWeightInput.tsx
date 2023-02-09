@@ -16,27 +16,29 @@ function FontWeightInput({ value, onChange, property }) {
 
   useEffect(() => setDisplayValue(value), [value])
 
-  return <>
-    <Grid container justifyContent="space-between" alignItems="baseline">
-      <Grid item>
-        <Typography
-          variant="caption"
-          color="textSecondary"
-        >{`${titles[property]}:`}</Typography>
+  return (
+    <>
+      <Grid container justifyContent="space-between" alignItems="baseline">
+        <Grid item>
+          <Typography
+            variant="caption"
+            color="textSecondary"
+          >{`${titles[property]}:`}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography display="inline">{displayValue}</Typography>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Typography display="inline">{displayValue}</Typography>
-      </Grid>
-    </Grid>
-    <Slider
-      value={displayValue}
-      min={100}
-      max={1000}
-      step={100}
-      onChange={(event, newDisplayValue) => setDisplayValue(newDisplayValue)}
-      onChangeCommitted={onChange}
-    />
-  </>;
+      <Slider
+        value={displayValue}
+        min={100}
+        max={1000}
+        step={100}
+        onChange={(event, newDisplayValue) => setDisplayValue(newDisplayValue)}
+        onChangeCommitted={onChange}
+      />
+    </>
+  )
 }
 
 export default FontWeightInput

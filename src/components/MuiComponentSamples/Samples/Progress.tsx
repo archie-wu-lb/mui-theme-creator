@@ -1,12 +1,16 @@
-import CheckIcon from "@mui/icons-material/Check";
-import SaveIcon from "@mui/icons-material/Save";
+import CheckIcon from "@mui/icons-material/Check"
+import SaveIcon from "@mui/icons-material/Save"
 import {
-  Box, Button, Fab, LinearProgress,
-  LinearProgressProps, Typography
-} from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import { green } from "@mui/material/colors";
-import React from "react";
+  Box,
+  Button,
+  Fab,
+  LinearProgress,
+  LinearProgressProps,
+  Typography,
+} from "@mui/material"
+import CircularProgress from "@mui/material/CircularProgress"
+import { green } from "@mui/material/colors"
+import React from "react"
 
 export default function ProgressExample() {
   const [loading, setLoading] = React.useState(false)
@@ -33,80 +37,102 @@ export default function ProgressExample() {
   return (
     <>
       <Typography variant="h6">Circular</Typography>
-      <Box sx={{
-        display: "flex",
-        alignItems: "center",
-        "& > * + *": {
-          ml: 2,
-        },
-      }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          "& > * + *": {
+            ml: 2,
+          },
+        }}
+      >
         <CircularProgress />
         <CircularProgress color="secondary" />
-        <Box sx={{
-          m: 1,
-          position: "relative",
-        }}>
+        <Box
+          sx={{
+            m: 1,
+            position: "relative",
+          }}
+        >
           <Fab
             aria-label="save"
             color="primary"
-            sx={success ? {
-              bgcolor: green[500],
-              "&:hover": {
-                bgcolor: green[700],
-              },
-            } : {}}
+            sx={
+              success
+                ? {
+                    bgcolor: green[500],
+                    "&:hover": {
+                      bgcolor: green[700],
+                    },
+                  }
+                : {}
+            }
             onClick={handleButtonClick}
           >
             {success ? <CheckIcon /> : <SaveIcon />}
           </Fab>
           {loading && (
-            <CircularProgress size={68} sx={{
-              color: green[500],
-              position: "absolute",
-              top: -6,
-              left: -6,
-              zIndex: 1,
-            }} />
+            <CircularProgress
+              size={68}
+              sx={{
+                color: green[500],
+                position: "absolute",
+                top: -6,
+                left: -6,
+                zIndex: 1,
+              }}
+            />
           )}
         </Box>
-        <Box sx={{
-          m: 1,
-          position: "relative",
-        }}>
+        <Box
+          sx={{
+            m: 1,
+            position: "relative",
+          }}
+        >
           <Button
             variant="contained"
             color="primary"
-            sx={success ? {
-              bgcolor: green[500],
-              "&:hover": {
-                bgcolor: green[700],
-              },
-            } : {}}
+            sx={
+              success
+                ? {
+                    bgcolor: green[500],
+                    "&:hover": {
+                      bgcolor: green[700],
+                    },
+                  }
+                : {}
+            }
             disabled={loading}
             onClick={handleButtonClick}
           >
             Accept terms
           </Button>
           {loading && (
-            <CircularProgress size={24} sx={{
-              color: green[500],
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              marginTop: '-12px',
-              marginLeft: '-12px',
-            }} />
+            <CircularProgress
+              size={24}
+              sx={{
+                color: green[500],
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                marginTop: "-12px",
+                marginLeft: "-12px",
+              }}
+            />
           )}
         </Box>
       </Box>
 
       <Typography variant="h6">Linear</Typography>
-      <Box sx={{
-        width: 1,
-        "& > * + *": {
-          mt: 2,
-        },
-      }}>
+      <Box
+        sx={{
+          width: 1,
+          "& > * + *": {
+            mt: 2,
+          },
+        }}
+      >
         <LinearProgress />
         <LinearProgress color="secondary" />
         <LinearBuffer />
@@ -120,7 +146,7 @@ function LinearBuffer() {
   const [progress, setProgress] = React.useState(0)
   const [buffer, setBuffer] = React.useState(10)
 
-  const progressRef = React.useRef(() => { })
+  const progressRef = React.useRef(() => {})
   React.useEffect(() => {
     progressRef.current = () => {
       if (progress > 100) {

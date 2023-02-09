@@ -16,8 +16,14 @@ function createData(time: string, amount?: number) {
   return {
     time,
     amount,
-    amount2: typeof amount === 'undefined' ? NaN : amount + Math.round(Math.random() * 1000),
-    amount3: typeof amount === 'undefined' ? NaN : amount + Math.round(Math.random() * 2000),
+    amount2:
+      typeof amount === "undefined"
+        ? NaN
+        : amount + Math.round(Math.random() * 1000),
+    amount3:
+      typeof amount === "undefined"
+        ? NaN
+        : amount + Math.round(Math.random() * 2000),
   }
 }
 

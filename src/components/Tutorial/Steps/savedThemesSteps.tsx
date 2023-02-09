@@ -20,7 +20,7 @@ const SavedThemesTabTutorialStep = () => {
 }
 
 const AddNewThemesTutorialStep = () => {
-  console.log(defaultThemesId);
+  console.log(defaultThemesId)
   // useSwitchToTab("saved")
   return (
     <>

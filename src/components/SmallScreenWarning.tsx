@@ -1,6 +1,13 @@
 import {
-  Box, Button,
-  darken, Dialog, DialogContent, Hidden, Slide, SlideProps, Typography
+  Box,
+  Button,
+  darken,
+  Dialog,
+  DialogContent,
+  Hidden,
+  Slide,
+  SlideProps,
+  Typography,
 } from "@mui/material"
 import { TransitionProps } from "@mui/material/transitions/transition"
 import React, { useEffect } from "react"
@@ -9,12 +16,11 @@ import hereBeDragonsImage from "src/images/herebedragons.webp"
 import { loadFonts } from "src/state/actions"
 import { RootState } from "src/state/types"
 
-const Transition = React.forwardRef<HTMLElement, SlideProps>(function Transition(
-  props,
-  ref
-) {
-  return <Slide direction="up" ref={ref} {...props} />
-})
+const Transition = React.forwardRef<HTMLElement, SlideProps>(
+  function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />
+  }
+)
 
 const SmallScreenWarning = () => {
   const warningSeen = useSelector((state: RootState) => state.mobileWarningSeen)
@@ -35,14 +41,16 @@ const SmallScreenWarning = () => {
         open={!warningSeen}
         onClose={handleClose}
         TransitionComponent={Transition}
-        sx={{ bgcolor: (theme) => darken(theme.palette.error.dark, 0.5) }}
+        sx={{ bgcolor: theme => darken(theme.palette.error.dark, 0.5) }}
       >
-        <DialogContent sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <DialogContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <Typography variant="h5">Material-UI Theme Creator</Typography>
           <Typography variant="h6">You are using a small screen</Typography>
           <div>
@@ -58,13 +66,15 @@ const SmallScreenWarning = () => {
             alt="Here Be Dragons... (for small screens)"
             width="75%"
           />
-          <Box sx={{
-            textAlign: "center",
-            marginBottom: 32,
-            "& > *": {
-              fontFamily: '"Press Start 2P"',
-            },
-          }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              marginBottom: 32,
+              "& > *": {
+                fontFamily: '"Press Start 2P"',
+              },
+            }}
+          >
             <Typography align="center">Warning to all who enter</Typography>
             <Button variant="outlined" onClick={handleClose}>
               Here be dragons

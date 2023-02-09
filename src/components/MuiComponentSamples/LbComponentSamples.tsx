@@ -1,8 +1,8 @@
 import { Box, Button, Grid, Typography } from "@mui/material"
 import React from "react"
-import componentSamples from "./Samples"
+import { LbComponents } from "./Samples"
 
-const MuiComponentSamples = () => {
+const LbComponentSamples = () => {
   return (
     <Box
       sx={{
@@ -12,9 +12,9 @@ const MuiComponentSamples = () => {
       }}
     >
       <Typography variant="h4" gutterBottom>
-        Material-UI Components
+        LeadBest Components
       </Typography>
-      {componentSamples.map(({ id, title, component, docs }) => (
+      {LbComponents.map(({ id, title, component, docs }) => (
         <div key={id} id={id}>
           <Grid container justifyContent="space-between" alignItems="center">
             <Typography variant="h5" gutterBottom>
@@ -48,4 +48,4 @@ const MuiComponentSamples = () => {
   )
 }
 
-export default MuiComponentSamples
+export default LbComponentSamples

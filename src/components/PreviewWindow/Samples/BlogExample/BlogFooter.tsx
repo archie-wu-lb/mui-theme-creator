@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import { Box } from "@mui/material"
+import Container from "@mui/material/Container"
+import Link from "@mui/material/Link"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 function Copyright() {
   return (
@@ -17,20 +17,23 @@ function Copyright() {
         {"."}
       </Typography>
     </Tooltip>
-  );
+  )
 }
 
 interface Props {
-  description: string;
-  title: string;
+  description: string
+  title: string
 }
 export default function BlogFooter({ description, title }: Props) {
   return (
-    <Box component="footer" sx={{
-      bgcolor: 'background.paper',
-      py: 6,
-      px: 0,
-    }}>
+    <Box
+      component="footer"
+      sx={{
+        bgcolor: "background.paper",
+        py: 6,
+        px: 0,
+      }}
+    >
       <Container maxWidth="lg">
         <Tooltip title={`<Typography variant="h6">`} arrow>
           <Typography variant="h6" align="center" gutterBottom>

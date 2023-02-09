@@ -7,7 +7,9 @@ import Typography from "@mui/material/Typography"
 import React, { useCallback, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
-  resetTutorialStep, setActiveTab, toggleTutorial
+  resetTutorialStep,
+  setActiveTab,
+  toggleTutorial,
 } from "src/state/actions"
 import { RootState } from "src/state/types"
 import stepList from "./Steps"
@@ -30,22 +32,26 @@ export const TutorialContent = () => {
   const CurrentStep = stepList[step]
   return (
     <Portal>
-      <Box sx={{
-        zIndex: 5000,
-        position: "relative",
-      }}>
+      <Box
+        sx={{
+          zIndex: 5000,
+          position: "relative",
+        }}
+      >
         <Backdrop open>
-          <Box sx={{
-            position: "absolute",
-            top: 0,
-            textAlign: "center",
-            display: "flex",
-            alignItems: "baseline",
-            "& > *": {
-              my: 0,
-              mx: 1
-            },
-          }}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              textAlign: "center",
+              display: "flex",
+              alignItems: "baseline",
+              "& > *": {
+                my: 0,
+                mx: 1,
+              },
+            }}
+          >
             <TutorialStepButton variant="prev" />
             <Typography variant="h3">Tutorial</Typography>
             <Typography>{`(${step + 1}/${stepList.length})`}</Typography>

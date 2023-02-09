@@ -3,7 +3,7 @@ import RedoIcon from "@mui/icons-material/Redo"
 import SaveIcon from "@mui/icons-material/Save"
 import UndoIcon from "@mui/icons-material/Undo"
 import { Box, Divider, IconButton, Snackbar } from "@mui/material"
-import Alert from '@mui/material/Alert'
+import Alert from "@mui/material/Alert"
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
 import React, { useState } from "react"
@@ -13,9 +13,9 @@ import { RootState } from "src/state/types"
 import EditorButton from "./EditorSettings"
 
 interface EditorControlsProps {
-  onRedo: React.MouseEventHandler<HTMLButtonElement>;
-  onUndo: React.MouseEventHandler<HTMLButtonElement>;
-  onSave: React.MouseEventHandler<HTMLButtonElement>;
+  onRedo: React.MouseEventHandler<HTMLButtonElement>
+  onUndo: React.MouseEventHandler<HTMLButtonElement>
+  onSave: React.MouseEventHandler<HTMLButtonElement>
 }
 
 function EditorControls({ onRedo, onUndo, onSave }: EditorControlsProps) {
@@ -23,12 +23,14 @@ function EditorControls({ onRedo, onUndo, onSave }: EditorControlsProps) {
   const canRedo = useSelector((state: RootState) => state.editor.canRedo)
   const canSave = useCanSave()
   return (
-    <Box sx={{
-      paddingRight: 1,
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}>
+    <Box
+      sx={{
+        paddingRight: 1,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
       <Box sx={{ display: "flex" }}>
         <EditorButton />
         <CopyButton />
@@ -63,12 +65,12 @@ function EditorControls({ onRedo, onUndo, onSave }: EditorControlsProps) {
         {canSave ? "* Unsaved Changes" : "All changes saved"}
       </Typography>
     </Box>
-  );
+  )
 }
 
 export default EditorControls
 
-const CopyButton = ({ }) => {
+const CopyButton = ({}) => {
   const themeInput = useSelector((state: RootState) => state.editor.themeInput)
   const outputTypescript = useSelector(
     (state: RootState) => state.editor.outputTypescript
@@ -86,21 +88,23 @@ const CopyButton = ({ }) => {
     navigator.clipboard.writeText(codeToCopy).then(() => setOpen(true))
   }
 
-  return <>
-    <Tooltip title="Copy theme code">
-      <IconButton color="primary" onClick={copyToClipboard} size="large">
-        <FileCopyIcon />
-      </IconButton>
-    </Tooltip>
-    <Snackbar
-      open={open}
-      autoHideDuration={2000}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      onClose={() => setOpen(false)}
-    >
-      <Alert variant="filled" severity="success">
-        Copied theme code to clipboard!
-      </Alert>
-    </Snackbar>
-  </>;
+  return (
+    <>
+      <Tooltip title="Copy theme code">
+        <IconButton color="primary" onClick={copyToClipboard} size="large">
+          <FileCopyIcon />
+        </IconButton>
+      </Tooltip>
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        onClose={() => setOpen(false)}
+      >
+        <Alert variant="filled" severity="success">
+          Copied theme code to clipboard!
+        </Alert>
+      </Snackbar>
+    </>
+  )
 }

@@ -23,14 +23,15 @@ const CodeEditorTutorialStep = () => {
           href="https://microsoft.github.io/monaco-editor/"
           target="_blank"
           rel="noreferrer"
-          underline="hover">
+          underline="hover"
+        >
           Monaco Code Editor
         </Link>
         {", "}
         the code editor that powers VS Code
       </Typography>
     </TutorialTooltip>
-  );
+  )
 }
 
 const IntellisenseTutorialStep = () => {

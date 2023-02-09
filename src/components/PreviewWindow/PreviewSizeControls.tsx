@@ -1,7 +1,12 @@
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows"
 import SmartphoneIcon from "@mui/icons-material/Smartphone"
 import TabletIcon from "@mui/icons-material/TabletAndroid"
-import { BottomNavigation, BottomNavigationAction, useMediaQuery, useTheme } from "@mui/material"
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
 import React, { useCallback, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setPreviewSize } from "src/state/actions"
@@ -18,7 +23,7 @@ const PreviewSizeControls = () => {
   )
 
   const theme = useTheme()
-  const screenIsMdDown = useMediaQuery(theme.breakpoints.down('lg'))
+  const screenIsMdDown = useMediaQuery(theme.breakpoints.down("lg"))
 
   // spoof a 'xs' screen size on the preview theme
   // when the user's screen is md breakpoint and below
@@ -38,7 +43,7 @@ const PreviewSizeControls = () => {
       onChange={handleOnChange}
       sx={{
         height: "auto",
-        bgcolor: 'background.default',
+        bgcolor: "background.default",
         position: "absolute",
         bottom: 0,
         left: 0,

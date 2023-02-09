@@ -20,9 +20,10 @@ const useSyncToStore = (editorRef: EditorRefType) => {
   const updateEditorState = useUpdateEditorState()
 
   useEffect(() => {
-    const modelContentChangeBinding = editorRef.current?.onDidChangeModelContent(
-      event => updateEditorState({ themeInput: editorRef.current?.getValue() })
-    )
+    const modelContentChangeBinding =
+      editorRef.current?.onDidChangeModelContent(event =>
+        updateEditorState({ themeInput: editorRef.current?.getValue() })
+      )
 
     return () => {
       modelContentChangeBinding?.dispose()

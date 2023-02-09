@@ -1,18 +1,39 @@
-import { Grid, Paper, StyledEngineProvider, Theme, ThemeProvider, Typography } from "@mui/material";
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "src/state/types";
+import {
+  Grid,
+  Paper,
+  StyledEngineProvider,
+  Theme,
+  ThemeProvider,
+  Typography,
+} from "@mui/material"
+import React from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "src/state/types"
 
-declare module '@mui/styles/defaultTheme' {
+declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme { }
+  interface DefaultTheme extends Theme {}
 }
 
 interface Props {
-  variant: "inherit" | "button" | "overline" | "caption" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "body1" | "body2";
-  bgText: string;
-  paperText: string;
-  smallPreview?: boolean;
+  variant:
+    | "inherit"
+    | "button"
+    | "overline"
+    | "caption"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "subtitle1"
+    | "subtitle2"
+    | "body1"
+    | "body2"
+  bgText: string
+  paperText: string
+  smallPreview?: boolean
 }
 function TypographySampleArea({
   variant,
@@ -30,7 +51,7 @@ function TypographySampleArea({
           sx={{
             overflow: "auto",
             maxHeight: 200,
-            pl: '4px',
+            pl: "4px",
             bgcolor: themeObject.palette.background.default,
           }}
         >
@@ -40,7 +61,7 @@ function TypographySampleArea({
                 variant={variant}
                 {...typographyProps}
                 sx={{
-                  transition: (theme) => theme.transitions.create("font-size"),
+                  transition: theme => theme.transitions.create("font-size"),
                   fontSize: smallPreview ? "1rem" : null,
                 }}
               >
@@ -48,16 +69,12 @@ function TypographySampleArea({
               </Typography>
             </Grid>
             <Grid item>
-              <Paper
-                variant="outlined"
-                square
-                sx={{ p: 0.5 }}
-              >
+              <Paper variant="outlined" square sx={{ p: 0.5 }}>
                 <Typography
                   variant={variant}
                   {...typographyProps}
                   sx={{
-                    transition: (theme) => theme.transitions.create("font-size"),
+                    transition: theme => theme.transitions.create("font-size"),
                     fontSize: smallPreview ? "1rem" : null,
                   }}
                 >
@@ -69,7 +86,7 @@ function TypographySampleArea({
         </Paper>
       </ThemeProvider>
     </StyledEngineProvider>
-  );
+  )
 }
 
 export default TypographySampleArea

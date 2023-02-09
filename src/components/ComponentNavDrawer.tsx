@@ -1,11 +1,21 @@
 import {
-  Drawer, Link, LinkProps, List, ListItemButton, ListItemText, ListSubheader, useMediaQuery, useTheme
-} from "@mui/material";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import componentSamples from "src/components/MuiComponentSamples/Samples";
-import { setActiveTab } from "src/state/actions";
-import { RootState } from "src/state/types";
+  Drawer,
+  Link,
+  LinkProps,
+  List,
+  ListItemButton,
+  ListItemText,
+  ListSubheader,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import componentSamples, {
+  LbComponents,
+} from "src/components/MuiComponentSamples/Samples"
+import { setActiveTab } from "src/state/actions"
+import { RootState } from "src/state/types"
 
 const drawerWidth: React.CSSProperties["width"] = 200
 
@@ -22,25 +32,44 @@ const ComponentNavDrawer = () => {
     dispatch(setActiveTab("components"))
   }, [dispatch])
 
-  const NavLink = React.forwardRef<HTMLAnchorElement, LinkProps>((linkProps, ref) => (
-    <Link ref={ref} {...linkProps} color="textPrimary" underline="hover" />
-  ))
+  const NavLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+    (linkProps, ref) => (
+      <Link ref={ref} {...linkProps} color="textPrimary" underline="hover" />
+    )
+  )
 
   return (
     <Drawer
       id={componentNavDrawerId}
       sx={{
         width: drawerWidth,
-        '& .MuiDrawer-paper': {
+        "& .MuiDrawer-paper": {
           width: drawerWidth,
-        }
+        },
       }}
       variant={permanent ? "permanent" : "temporary"}
       open={open}
       anchor="left"
       onClose={() => dispatch({ type: "TOGGLE_COMPONENT_NAV" })}
     >
-      <List dense sx={{ bgcolor: 'background.paper' }}>
+      <List dense sx={{ bgcolor: "background.paper" }}>
+        <ListSubheader>LbComponents</ListSubheader>
+        {LbComponents.map(({ id, title }) => (
+          <ListItemButton
+            key={id}
+            component={NavLink}
+            href={`#${id}`}
+            onClick={handleClick}
+          >
+            <ListItemText
+              primary={title}
+              sx={{ pl: 2 }}
+              primaryTypographyProps={{
+                variant: "body2",
+              }}
+            />
+          </ListItemButton>
+        ))}
         <ListSubheader>Components</ListSubheader>
         {componentSamples.map(({ id, title }) => (
           <ListItemButton

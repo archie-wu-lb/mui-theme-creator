@@ -1,10 +1,10 @@
-import Grid from "@mui/material/Grid";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import Grid from "@mui/material/Grid"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 const products = [
   { name: "Product 1", desc: "A nice thing", price: "$9.99" },

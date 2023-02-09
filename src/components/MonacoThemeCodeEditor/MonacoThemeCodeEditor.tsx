@@ -32,21 +32,27 @@ const MonacoThemeCodeEditor = () => {
   }, [])
 
   return (
-    <Box id="code-editor" sx={{
-      height: 1,
-      display: "flex",
-      flexDirection: "column",
-      position: "relative",
-    }}>
+    <Box
+      id="code-editor"
+      sx={{
+        height: 1,
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
+    >
       <EditorControls
         onUndo={handleUndo}
         onRedo={handleRedo}
         onSave={handleSave}
       />
-      <Box id="container" sx={{
-        height: "calc(100% - 48px)",
-        width: 1,
-      }} />
+      <Box
+        id="container"
+        sx={{
+          height: "calc(100% - 48px)",
+          width: 1,
+        }}
+      />
       <EditorErrors editorRef={editorRef} />
     </Box>
   )

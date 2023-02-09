@@ -1,13 +1,13 @@
-import { Button, Grid } from "@mui/material";
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import ColorInput from "src/components/ColorInput";
-import { removeThemeOption, setThemeOption } from "src/state/actions";
-import { useThemeValueInfo } from "src/state/selectors";
+import { Button, Grid } from "@mui/material"
+import React, { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import ColorInput from "src/components/ColorInput"
+import { removeThemeOption, setThemeOption } from "src/state/actions"
+import { useThemeValueInfo } from "src/state/selectors"
 
 interface Props {
-  label: string;
-  path: string;
+  label: string
+  path: string
 }
 export default function PaletteInput({ label, path }: Props) {
   const themeValueInfo = useThemeValueInfo(path)
@@ -18,9 +18,10 @@ export default function PaletteInput({ label, path }: Props) {
     [dispatch]
   )
 
-  const handleReset = useCallback(() => dispatch(removeThemeOption(path)), [
-    dispatch,
-  ])
+  const handleReset = useCallback(
+    () => dispatch(removeThemeOption(path)),
+    [dispatch]
+  )
 
   return (
     <Grid container justifyContent="space-between" alignItems="flex-end">
@@ -37,9 +38,9 @@ export default function PaletteInput({ label, path }: Props) {
           disabled={!themeValueInfo.modifiedByUser}
           sx={{
             textTransform: "capitalize",
-            '&.Mui-disabled': {
+            "&.Mui-disabled": {
               fontStyle: "italic",
-            }
+            },
           }}
           onClick={handleReset}
         >
@@ -47,5 +48,5 @@ export default function PaletteInput({ label, path }: Props) {
         </Button>
       </Grid>
     </Grid>
-  );
+  )
 }

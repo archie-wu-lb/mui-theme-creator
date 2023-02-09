@@ -104,7 +104,7 @@ export default function PricingExample() {
           position="static"
           color="default"
           elevation={0}
-          sx={{ borderBottom: 1, borderBottomColor: 'divider', }}
+          sx={{ borderBottom: 1, borderBottomColor: "divider" }}
         >
           <Toolbar sx={{ flexWrap: "wrap" }}>
             <Tooltip
@@ -131,7 +131,8 @@ export default function PricingExample() {
                   color="textPrimary"
                   href="#"
                   sx={{ my: 1, mx: 1.5 }}
-                  underline="hover">
+                  underline="hover"
+                >
                   Features
                 </Link>
               </Tooltip>
@@ -144,7 +145,8 @@ export default function PricingExample() {
                   color="textPrimary"
                   href="#"
                   sx={{ my: 1, mx: 1.5 }}
-                  underline="hover">
+                  underline="hover"
+                >
                   Enterprise
                 </Link>
               </Tooltip>
@@ -157,7 +159,8 @@ export default function PricingExample() {
                   color="textPrimary"
                   href="#"
                   sx={{ my: 1, mx: 1.5 }}
-                  underline="hover">
+                  underline="hover"
+                >
                   Support
                 </Link>
               </Tooltip>
@@ -233,25 +236,37 @@ export default function PricingExample() {
                       subheaderTypographyProps={{
                         align: "center",
                         sx: {
-                          color: 'secondary.contrastText',
-                          bgcolor: tier.color === 'main' ? 'secondary.main' : tier.color === 'light' ? 'secondary.light' : 'secondary.dark',
-                        }
+                          color: "secondary.contrastText",
+                          bgcolor:
+                            tier.color === "main"
+                              ? "secondary.main"
+                              : tier.color === "light"
+                              ? "secondary.light"
+                              : "secondary.dark",
+                        },
                       }}
                       action={tier.title === "Pro" ? <StarIcon /> : null}
                       sx={{
-                        color: 'secondary.contrastText',
-                        bgcolor: tier.color === 'main' ? 'secondary.main' : tier.color === 'light' ? 'secondary.light' : 'secondary.dark',
+                        color: "secondary.contrastText",
+                        bgcolor:
+                          tier.color === "main"
+                            ? "secondary.main"
+                            : tier.color === "light"
+                            ? "secondary.light"
+                            : "secondary.dark",
                       }}
                     />
                   </div>
                 </Tooltip>
                 <CardContent>
-                  <Box sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "baseline",
-                    mb: 2,
-                  }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "baseline",
+                      mb: 2,
+                    }}
+                  >
                     <Tooltip
                       title={`<Typography color="textPrimary" variant="h3">`}
                       placement="left"
@@ -314,14 +329,18 @@ export default function PricingExample() {
         </Grid>
       </Container>
       {/* Footer */}
-      <Container maxWidth="md" component="footer" sx={{
-        borderTop: 1,
-        mt: 8,
-        py: {
-          xs: 3,
-          sm: 6,
-        },
-      }}>
+      <Container
+        maxWidth="md"
+        component="footer"
+        sx={{
+          borderTop: 1,
+          mt: 8,
+          py: {
+            xs: 3,
+            sm: 6,
+          },
+        }}
+      >
         <Grid container spacing={4} justifyContent="space-evenly">
           {footers.map(footer => (
             <Grid item xs={6} sm={3} key={footer.title}>
@@ -334,11 +353,14 @@ export default function PricingExample() {
                   {footer.title}
                 </Typography>
               </Tooltip>
-              <Box component="ul" sx={{
-                margin: 0,
-                padding: 0,
-                listStyle: "none",
-              }}>
+              <Box
+                component="ul"
+                sx={{
+                  margin: 0,
+                  padding: 0,
+                  listStyle: "none",
+                }}
+              >
                 {footer.description.map(item => (
                   <li key={item}>
                     <Tooltip
@@ -346,7 +368,12 @@ export default function PricingExample() {
                       placement="left"
                       arrow
                     >
-                      <Link href="#" variant="subtitle1" color="textSecondary" underline="hover">
+                      <Link
+                        href="#"
+                        variant="subtitle1"
+                        color="textSecondary"
+                        underline="hover"
+                      >
                         {item}
                       </Link>
                     </Tooltip>
@@ -359,5 +386,5 @@ export default function PricingExample() {
       </Container>
       {/* End footer */}
     </React.Fragment>
-  );
+  )
 }

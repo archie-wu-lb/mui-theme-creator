@@ -1,7 +1,7 @@
-import Link from "@mui/material/Link";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import Link from "@mui/material/Link"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 function preventDefault(event: React.MouseEvent) {
   event.preventDefault()
@@ -39,11 +39,16 @@ export default function Deposits() {
       </Tooltip>
       <div>
         <Tooltip title={`<Link color="primary">`} placement="left" arrow>
-          <Link color="primary" href="#" onClick={preventDefault} underline="hover">
+          <Link
+            color="primary"
+            href="#"
+            onClick={preventDefault}
+            underline="hover"
+          >
             View balance
           </Link>
         </Tooltip>
       </div>
     </React.Fragment>
-  );
+  )
 }

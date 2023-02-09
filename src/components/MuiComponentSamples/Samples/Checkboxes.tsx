@@ -1,11 +1,11 @@
-import { Box } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormLabel from "@mui/material/FormLabel";
-import React from "react";
+import { Box } from "@mui/material"
+import Checkbox from "@mui/material/Checkbox"
+import FormControl from "@mui/material/FormControl"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormGroup from "@mui/material/FormGroup"
+import FormHelperText from "@mui/material/FormHelperText"
+import FormLabel from "@mui/material/FormLabel"
+import React from "react"
 
 export default function CheckboxesExample() {
   const [state, setState] = React.useState({
@@ -51,12 +51,7 @@ export default function CheckboxesExample() {
         </FormGroup>
         <FormHelperText>Be careful</FormHelperText>
       </FormControl>
-      <FormControl
-        required
-        error={error}
-        component="fieldset"
-        sx={{ m: 3 }}
-      >
+      <FormControl required error={error} component="fieldset" sx={{ m: 3 }}>
         <FormLabel component="legend">Pick two</FormLabel>
         <FormGroup>
           <FormControlLabel

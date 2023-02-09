@@ -1,8 +1,13 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Accordion, AccordionDetails, AccordionSummary, Divider } from "@mui/material";
-import React, { useState } from "react";
-import TypographyInput from "./TypographyInput/TypographyInput";
-import TypographySampleArea from "./TypographySampleArea";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Divider,
+} from "@mui/material"
+import React, { useState } from "react"
+import TypographyInput from "./TypographyInput/TypographyInput"
+import TypographySampleArea from "./TypographySampleArea"
 
 const defaultVariantProperties = [
   "fontFamily",
@@ -13,7 +18,21 @@ const defaultVariantProperties = [
 ]
 
 interface Props {
-  variant: "button" | "caption" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "inherit" | "overline" | "subtitle1" | "subtitle2" | "body1" | "body2"
+  variant:
+    | "button"
+    | "caption"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "inherit"
+    | "overline"
+    | "subtitle1"
+    | "subtitle2"
+    | "body1"
+    | "body2"
   text: string
   smallPreview?: boolean
 }
@@ -29,14 +48,14 @@ function TypographyVariant({ variant, text, smallPreview = false }: Props) {
         sx={{
           position: "sticky",
           top: 0,
-          bgcolor: 'background.paper',
-          zIndex: (theme) => theme.zIndex.drawer + 3,
+          bgcolor: "background.paper",
+          zIndex: theme => theme.zIndex.drawer + 3,
           borderBottom: 1,
-          borderBottomColor: 'divider',
-          '& .MuiAccordionSummary-content': {
+          borderBottomColor: "divider",
+          "& .MuiAccordionSummary-content": {
             maxWidth: "100%",
             overflow: "auto",
-          }
+          },
         }}
       >
         <TypographySampleArea
@@ -46,18 +65,17 @@ function TypographyVariant({ variant, text, smallPreview = false }: Props) {
           smallPreview={smallPreview && !expanded}
         />
       </AccordionSummary>
-      <AccordionDetails sx={{
-        flexDirection: "column",
-        "&> *": {
-          mb: 2,
-        },
-      }}>
+      <AccordionDetails
+        sx={{
+          flexDirection: "column",
+          "&> *": {
+            mb: 2,
+          },
+        }}
+      >
         {defaultVariantProperties.map(property => (
           <div key={`${variant}-${property}`}>
-            <TypographyInput
-              variantPath={variantPath}
-              property={property}
-            />
+            <TypographyInput variantPath={variantPath} property={property} />
             <Divider />
           </div>
         ))}

@@ -1,9 +1,9 @@
-import { Box, Switch, Typography } from "@mui/material";
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { setThemeOption } from "src/state/actions";
-import { useThemeValue } from "src/state/selectors";
-import { ThemeValueChangeEvent } from "../events";
+import { Box, Switch, Typography } from "@mui/material"
+import React, { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import { setThemeOption } from "src/state/actions"
+import { useThemeValue } from "src/state/selectors"
+import { ThemeValueChangeEvent } from "../events"
 
 export default function ThemeTypeInput() {
   const themeIsDark = useThemeValue("palette.mode") === "dark"
@@ -15,10 +15,12 @@ export default function ThemeTypeInput() {
   }, [dispatch, themeIsDark])
 
   return (
-    <Box sx={{
-      display: "flex",
-      alignItems: "center",
-    }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <Typography
         variant="body2"
         color={themeIsDark ? "textSecondary" : "textPrimary"}

@@ -1,21 +1,31 @@
-import { Box, InputAdornment, Popover, TextField } from "@mui/material";
-import React, { useEffect } from "react";
-import { ChromePicker, Color, ColorChangeHandler, HSLColor, RGBColor } from "react-color";
-import { ThemeValueChangeEvent } from "src/components/ThemeTools/events";
-import MaterialColorPicker from "./MaterialColorPicker";
-import { colorFromString } from "./utils";
+import { Box, InputAdornment, Popover, TextField } from "@mui/material"
+import React, { useEffect } from "react"
+import {
+  ChromePicker,
+  Color,
+  ColorChangeHandler,
+  HSLColor,
+  RGBColor,
+} from "react-color"
+import { ThemeValueChangeEvent } from "src/components/ThemeTools/events"
+import MaterialColorPicker from "./MaterialColorPicker"
+import { colorFromString } from "./utils"
 
 interface ColorInputProps {
-  label: string;
-  color: string;
-  onColorChange: (color: string) => void;
+  label: string
+  color: string
+  onColorChange: (color: string) => void
 }
 
 /**
  * The base TextField input for selecting colors.
  * onClick opens a popover with components to help pick colors
  */
-export default function ColorInput({ label, color, onColorChange }: ColorInputProps) {
+export default function ColorInput({
+  label,
+  color,
+  onColorChange,
+}: ColorInputProps) {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null)
 
   const handleOpenPopover = (event: React.MouseEvent) => {
@@ -51,7 +61,7 @@ export default function ColorInput({ label, color, onColorChange }: ColorInputPr
                   width: "1em",
                   height: "1em",
                   border: "1px solid grey",
-                  bgcolor: color
+                  bgcolor: color,
                 }}
               />
             </InputAdornment>
@@ -81,7 +91,7 @@ export default function ColorInput({ label, color, onColorChange }: ColorInputPr
             flexDirection: "column",
             borderRadius: 0,
             alignItems: "center",
-          }
+          },
         }}
         disableAutoFocus
         disableEnforceFocus
@@ -93,14 +103,14 @@ export default function ColorInput({ label, color, onColorChange }: ColorInputPr
 }
 
 interface ColorObject {
-  hex: string;
-  hsl?: HSLColor;
-  rgb: RGBColor;
+  hex: string
+  hsl?: HSLColor
+  rgb: RGBColor
 }
 
 interface ColorPickerProps {
-  color: string;
-  onChangeComplete: Function;
+  color: string
+  onChangeComplete: Function
 }
 /**
  * Creates the ChromePicker and MaterialColorPicker and
@@ -112,7 +122,10 @@ function ColorPicker({ color, onChangeComplete }: ColorPickerProps) {
     setInputValue(color)
   }, [color])
 
-  const handleChange = (colorObject: ColorObject, event?: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    colorObject: ColorObject,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (colorObject.rgb.a === 1) {
       setInputValue(colorObject.hex)
       return colorObject.hex
@@ -123,7 +136,10 @@ function ColorPicker({ color, onChangeComplete }: ColorPickerProps) {
     }
   }
 
-  const handleChangeComplete = (colorObject: ColorObject, event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeComplete = (
+    colorObject: ColorObject,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const colorString = handleChange(colorObject, event)
     onChangeComplete(colorString, null)
   }

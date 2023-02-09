@@ -1,9 +1,12 @@
-import { Box, Collapse, Tooltip } from "@mui/material";
-import * as colors from "@mui/material/colors";
-import { decomposeColor, hslToRgb, recomposeColor, rgbToHex } from '@mui/material/styles';
-import React, { useEffect } from "react";
-
-
+import { Box, Collapse, Tooltip } from "@mui/material"
+import * as colors from "@mui/material/colors"
+import {
+  decomposeColor,
+  hslToRgb,
+  recomposeColor,
+  rgbToHex,
+} from "@mui/material/styles"
+import React, { useEffect } from "react"
 
 const muiHues = [
   "red",
@@ -104,12 +107,14 @@ export default function MaterialColorPicker({ color, onChangeComplete }) {
   return (
     <div>
       <div>
-        <Box sx={{
-          display: "flex",
-          flexDirection: "row",
-          height: "1.5em",
-          alignItems: "flex-end",
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            height: "1.5em",
+            alignItems: "flex-end",
+          }}
+        >
           {muiHues.map(c => (
             <Tooltip
               title={c}
@@ -124,17 +129,19 @@ export default function MaterialColorPicker({ color, onChangeComplete }) {
                   width: colorTypeWidth,
                   backgroundColor: colors[c]["500"],
                 }}
-                sx={{ transition: (theme) => theme.transitions.create("height") }}
+                sx={{ transition: theme => theme.transitions.create("height") }}
                 onClick={() => setHue(c)}
               />
             </Tooltip>
           ))}
         </Box>
-        <Box sx={{
-          display: "flex",
-          flexDirection: "row",
-          height: "1.5em",
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            height: "1.5em",
+          }}
+        >
           {muiShades.map(s => (
             <Tooltip
               title={s}
@@ -149,7 +156,7 @@ export default function MaterialColorPicker({ color, onChangeComplete }) {
                   width: colorStrengthWidth,
                   backgroundColor: colors[hue ?? "red"][s],
                 }}
-                sx={{ transition: (theme) => theme.transitions.create("height") }}
+                sx={{ transition: theme => theme.transitions.create("height") }}
                 onClick={() => {
                   setShade(s)
                   onChangeComplete(colors[hue ?? "red"][s])

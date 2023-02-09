@@ -1,20 +1,20 @@
-import DeleteIcon from "@mui/icons-material/Delete";
-import FolderIcon from "@mui/icons-material/Folder";
-import { Box } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
-import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import DeleteIcon from "@mui/icons-material/Delete"
+import FolderIcon from "@mui/icons-material/Folder"
+import { Box } from "@mui/material"
+import Avatar from "@mui/material/Avatar"
+import Checkbox from "@mui/material/Checkbox"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormGroup from "@mui/material/FormGroup"
+import Grid from "@mui/material/Grid"
+import IconButton from "@mui/material/IconButton"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import ListItemText from "@mui/material/ListItemText"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 function generate(element: React.ReactElement) {
   return [0, 1, 2].map(value =>
@@ -29,10 +29,12 @@ export default function ListExample() {
   const [secondary, setSecondary] = React.useState(false)
 
   return (
-    <Box sx={{
-      flexGrow: 1,
-      maxWidth: 752,
-    }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        maxWidth: 752,
+      }}
+    >
       <FormGroup row>
         <FormControlLabel
           control={
@@ -58,7 +60,7 @@ export default function ListExample() {
           <Typography variant="h6" sx={{ mt: 4, mx: 0, mb: 2 }}>
             Text only
           </Typography>
-          <Box sx={{ bgcolor: 'background.paper' }}>
+          <Box sx={{ bgcolor: "background.paper" }}>
             <List dense={dense}>
               {generate(
                 <ListItem>
@@ -75,7 +77,7 @@ export default function ListExample() {
           <Typography variant="h6" sx={{ mt: 4, mx: 0, mb: 2 }}>
             Icon with text
           </Typography>
-          <Box sx={{ bgcolor: 'background.paper' }}>
+          <Box sx={{ bgcolor: "background.paper" }}>
             <List dense={dense}>
               {generate(
                 <ListItem>
@@ -97,7 +99,7 @@ export default function ListExample() {
           <Typography variant="h6" sx={{ mt: 4, mx: 0, mb: 2 }}>
             Avatar with text
           </Typography>
-          <Box sx={{ bgcolor: 'background.paper' }}>
+          <Box sx={{ bgcolor: "background.paper" }}>
             <List dense={dense}>
               {generate(
                 <ListItem>
@@ -119,7 +121,7 @@ export default function ListExample() {
           <Typography variant="h6" sx={{ mt: 4, mx: 0, mb: 2 }}>
             Avatar with text and icon
           </Typography>
-          <Box sx={{ bgcolor: 'background.paper' }}>
+          <Box sx={{ bgcolor: "background.paper" }}>
             <List dense={dense}>
               {generate(
                 <ListItem>
@@ -144,5 +146,5 @@ export default function ListExample() {
         </Grid>
       </Grid>
     </Box>
-  );
+  )
 }

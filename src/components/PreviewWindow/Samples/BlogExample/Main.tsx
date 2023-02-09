@@ -1,11 +1,11 @@
-import { Box, Link, Tooltip } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import { Box, Link, Tooltip } from "@mui/material"
+import Divider from "@mui/material/Divider"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 interface Props {
-  title: string;
+  title: string
 }
 export default function Main({ title }: Props) {
   return (
@@ -20,11 +20,13 @@ export default function Main({ title }: Props) {
         </Typography>
       </Tooltip>
       <Divider />
-      <Box sx={{
-        typography: 'body2',
-        py: 3,
-        px: 0
-      }}>
+      <Box
+        sx={{
+          typography: "body2",
+          py: 3,
+          px: 0,
+        }}
+      >
         <Tooltip
           title={`<Typography color="textPrimary" variant="h5">`}
           placement="left"
@@ -40,7 +42,9 @@ export default function Main({ title }: Props) {
           <Typography>
             April 1, 2020 by{" "}
             <Tooltip title={`<Link color="primary" variant="body1">`} arrow>
-              <Link href="#" underline="hover">[Olivier]</Link>
+              <Link href="#" underline="hover">
+                [Olivier]
+              </Link>
             </Tooltip>
           </Typography>
         </Tooltip>
@@ -145,5 +149,5 @@ export default function Main({ title }: Props) {
         </ol>
       </Box>
     </Grid>
-  );
+  )
 }

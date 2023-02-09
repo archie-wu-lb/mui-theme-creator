@@ -1,24 +1,24 @@
-import React, { Component, ErrorInfo, ReactNode, useCallback } from "react";
+import React, { Component, ErrorInfo, ReactNode, useCallback } from "react"
 import Typography from "@mui/material/Typography"
-import { Box, Button } from "@mui/material";
-import withStyles from '@mui/styles/withStyles';
+import { Box, Button } from "@mui/material"
+import withStyles from "@mui/styles/withStyles"
 import { useDispatch } from "react-redux"
 import { resetSiteData } from "src/state/actions"
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
 interface State {
-  hasError: boolean;
-  error: Error | null;
+  hasError: boolean
+  error: Error | null
 }
 
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
-    error: null
-  };
+    error: null,
+  }
 
   public static getDerivedStateFromError(error: Error) {
     // Update state so the next render will show the fallback UI.
@@ -34,14 +34,16 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <Box sx={{
-          width: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          height: "100vh",
-          overflowY: "auto",
-        }}>
+        <Box
+          sx={{
+            width: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            height: "100vh",
+            overflowY: "auto",
+          }}
+        >
           <Typography variant="h2">
             Something went wrong, causing the app to crash
           </Typography>
@@ -68,7 +70,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary
 
 const ClearStorageButton = () => {
   const dispatch = useDispatch()

@@ -1,19 +1,23 @@
-import { Box } from "@mui/material";
-import Link from "@mui/material/Link";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import { Box } from "@mui/material"
+import Link from "@mui/material/Link"
+import Table from "@mui/material/Table"
+import TableBody from "@mui/material/TableBody"
+import TableCell from "@mui/material/TableCell"
+import TableHead from "@mui/material/TableHead"
+import TableRow from "@mui/material/TableRow"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 // Generate Order Data
 function createData(
-  id: number, date: string,
-  name: string, shipTo: string,
-  paymentMethod: string, amount: number) {
+  id: number,
+  date: string,
+  name: string,
+  shipTo: string,
+  paymentMethod: string,
+  amount: number
+) {
   return { id, date, name, shipTo, paymentMethod, amount }
 }
 
@@ -102,11 +106,16 @@ export default function Orders() {
       </Tooltip>
       <Box sx={{ mt: 3 }}>
         <Tooltip title={`<Link color="primary">`} placement="left" arrow>
-          <Link color="primary" href="#" onClick={preventDefault} underline="hover">
+          <Link
+            color="primary"
+            href="#"
+            onClick={preventDefault}
+            underline="hover"
+          >
             See more orders
           </Link>
         </Tooltip>
       </Box>
     </React.Fragment>
-  );
+  )
 }

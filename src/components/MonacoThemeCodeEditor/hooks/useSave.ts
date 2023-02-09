@@ -66,11 +66,8 @@ export default function useSave(editorRef: EditorRefType) {
     // format document if required
     if (formatOnSave) await formatInput(editorRef)
 
-    const [
-      semanticDiagnostics,
-      syntacticDiagnostics,
-      emittedOutput,
-    ] = await validateInput(editorRef)
+    const [semanticDiagnostics, syntacticDiagnostics, emittedOutput] =
+      await validateInput(editorRef)
 
     // if there are semantic errors, prevent saving, else save to redux store
     const errors = [...syntacticDiagnostics, ...semanticDiagnostics]

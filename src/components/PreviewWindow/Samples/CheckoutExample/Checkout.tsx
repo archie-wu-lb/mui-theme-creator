@@ -1,16 +1,15 @@
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
-import AddressForm from "./AddressForm";
-import PaymentForm from "./PaymentForm";
-import Review from "./Review";
-
+import { Box } from "@mui/material"
+import Button from "@mui/material/Button"
+import Paper from "@mui/material/Paper"
+import Step from "@mui/material/Step"
+import StepLabel from "@mui/material/StepLabel"
+import Stepper from "@mui/material/Stepper"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
+import AddressForm from "./AddressForm"
+import PaymentForm from "./PaymentForm"
+import Review from "./Review"
 
 const steps = ["Shipping address", "Payment details", "Review your order"]
 
@@ -39,25 +38,29 @@ export default function Checkout() {
   }
 
   return (
-    <Box sx={(theme) => ({
-      width: "auto",
-      mx: {
-        xs: 2,
-      },
-      px: 2,
-      [theme.breakpoints.up(600 + +theme.spacing(4).replace('px', ''))]: {
-        maxWidth: 600,
-        mx: "auto",
-      },
-    })}>
-      <Paper sx={(theme) => ({
-        my: 3,
-        p: 2,
-        [theme.breakpoints.up(600 + +theme.spacing(6).replace('px', ''))]: {
-          my: 6,
-          p: 3,
+    <Box
+      sx={theme => ({
+        width: "auto",
+        mx: {
+          xs: 2,
         },
-      })}>
+        px: 2,
+        [theme.breakpoints.up(600 + +theme.spacing(4).replace("px", ""))]: {
+          maxWidth: 600,
+          mx: "auto",
+        },
+      })}
+    >
+      <Paper
+        sx={theme => ({
+          my: 3,
+          p: 2,
+          [theme.breakpoints.up(600 + +theme.spacing(6).replace("px", ""))]: {
+            my: 6,
+            p: 3,
+          },
+        })}
+      >
         <Tooltip
           title={`<Typography color="textPrimary" variant="h4">`}
           placement="top"
@@ -67,9 +70,14 @@ export default function Checkout() {
             Checkout
           </Typography>
         </Tooltip>
-        <Stepper activeStep={activeStep} sx={{
-          pt: 3, px: 0, pb: 5
-        }}>
+        <Stepper
+          activeStep={activeStep}
+          sx={{
+            pt: 3,
+            px: 0,
+            pb: 5,
+          }}
+        >
           {steps.map(label => (
             <Step key={label}>
               <Tooltip title={`<StepLabel>`} placement="top" arrow>
@@ -105,10 +113,12 @@ export default function Checkout() {
           ) : (
             <React.Fragment>
               {getStepContent(activeStep)}
-              <Box sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-              }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
                 {activeStep !== 0 && (
                   <Tooltip title={`<Button variant="text">`} arrow>
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>

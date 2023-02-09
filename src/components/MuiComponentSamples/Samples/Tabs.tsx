@@ -1,11 +1,11 @@
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import PersonPinIcon from "@mui/icons-material/PersonPin";
-import PhoneIcon from "@mui/icons-material/Phone";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import PersonPinIcon from "@mui/icons-material/PersonPin"
+import PhoneIcon from "@mui/icons-material/Phone"
+import Box from "@mui/material/Box"
+import Tab from "@mui/material/Tab"
+import Tabs from "@mui/material/Tabs"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -48,10 +48,12 @@ export default function TabsExample() {
   }
 
   return (
-    <Box sx={{
-      flexGrow: 1,
-      bgcolor: 'background.paper',
-    }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        bgcolor: "background.paper",
+      }}
+    >
       <Box position="static">
         <Tabs
           value={value}

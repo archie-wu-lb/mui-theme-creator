@@ -1,17 +1,17 @@
-import { Box } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Grid from "@mui/material/Grid";
-import Hidden from "@mui/material/Hidden";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import React from "react";
-import { Post } from "./Blog";
+import { Box } from "@mui/material"
+import Card from "@mui/material/Card"
+import CardActionArea from "@mui/material/CardActionArea"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import Grid from "@mui/material/Grid"
+import Hidden from "@mui/material/Hidden"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import React from "react"
+import { Post } from "./Blog"
 
 interface Props {
-  post: Post;
+  post: Post
 }
 export default function FeaturedPost({ post }: Props) {
   return (
@@ -68,5 +68,5 @@ export default function FeaturedPost({ post }: Props) {
         </Card>
       </CardActionArea>
     </Grid>
-  );
+  )
 }

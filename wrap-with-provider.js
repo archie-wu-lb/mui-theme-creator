@@ -22,4 +22,4 @@ const ProviderWrap = ({ element }) => {
   )
 }
 
-export default ProviderWrap;
+export default ProviderWrap

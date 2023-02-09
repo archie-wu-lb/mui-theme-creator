@@ -7,7 +7,7 @@ import React from "react"
 import TutorialStepButton from "./TutorialStepButton"
 
 interface Props extends CardProps {
-  title: string;
+  title: string
 }
 const TutorialCard = ({ title, ...props }: Props) => {
   return (

@@ -1,8 +1,8 @@
-import { Grid } from "@mui/material";
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "src/state/types";
-import SavedThemeItem from "./SavedThemeItem/SavedThemeItem";
+import { Grid } from "@mui/material"
+import React from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "src/state/types"
+import SavedThemeItem from "./SavedThemeItem/SavedThemeItem"
 
 export const savedThemeListId = "saved-theme-list"
 
@@ -32,7 +32,7 @@ function SavedThemeList() {
         </Grid>
       ))}
     </Grid>
-  );
+  )
 }
 
 export default SavedThemeList
