@@ -2,7 +2,7 @@ import React from "react"
 
 import { savedThemesTabId } from "src/components/MainWindow"
 import { addThemeButtonId } from "src/components/SavedThemes/AddThemeButton"
-import { defaultThemesId } from "src/components/SavedThemes/DefaultThemes"
+import { defaultThemesId } from "src/components/SavedThemes/defaultThemeList"
 import { savedThemeListId } from "src/components/SavedThemes/SavedThemeList"
 
 import TutorialTooltip from "../TutorialTooltip"

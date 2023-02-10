@@ -13,18 +13,20 @@ interface Props {
   name: string
   themeId: string
   lastUpdated: string
+  large?: boolean
   themeOptions: ThemeOptions
 }
 function SavedThemeItem({
   name,
   themeId,
   lastUpdated,
+  large,
   ...thumbnailProps
 }: Props) {
   const dispatch = useDispatch()
 
   const handleLoadTheme = useCallback(
-    event => {
+    (event: any) => {
       event.stopPropagation()
       dispatch(loadSavedTheme(themeId))
     },
@@ -32,7 +34,7 @@ function SavedThemeItem({
   )
 
   const handleRemoveTheme = useCallback(
-    event => {
+    (event: any) => {
       event.stopPropagation()
       dispatch(removeSavedTheme(themeId))
     },
@@ -65,7 +67,7 @@ function SavedThemeItem({
           <Typography variant="subtitle1" align="center">
             {name}
           </Typography>
-          <ThemeThumbnail {...thumbnailProps} />
+          <ThemeThumbnail large={large} {...thumbnailProps} />
           <Typography
             variant="caption"
             component="p"

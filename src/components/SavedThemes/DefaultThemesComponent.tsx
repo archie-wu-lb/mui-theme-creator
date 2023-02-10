@@ -10,7 +10,7 @@ import React, { useCallback } from "react"
 import { useDispatch } from "react-redux"
 import { addNewDefaultTheme } from "../../state/actions"
 import { NewSavedTheme } from "../../state/types"
-import defaultThemes, { defaultThemesId } from "./DefaultThemes"
+import defaultThemes, { defaultThemesId } from "./defaultThemeList"
 import ThemeThumbnail from "./ThemeThumbnail"
 
 function DefaultThemesComponent() {
