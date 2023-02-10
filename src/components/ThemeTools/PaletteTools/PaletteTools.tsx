@@ -11,6 +11,7 @@ const paletteColorTypes = [
   "info",
   "success",
   "default",
+  "border",
 ]
 
 export default function PaletteTools() {

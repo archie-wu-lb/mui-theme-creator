@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material"
 import React from "react"
-import { LbComponents } from "./Samples"
+import LbComponents from "./Samples"
 
 const LbComponentSamples = () => {
   return (

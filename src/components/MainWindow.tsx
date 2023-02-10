@@ -3,9 +3,8 @@ import { AppBar, Box, Hidden, IconButton, Tab, Tabs } from "@mui/material"
 import MaterialUiIcon from "mdi-material-ui/MaterialUi"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import MuiComponentSamples, {
-  LbComponentSamples,
-} from "src/components/MuiComponentSamples"
+import MuiComponentSamples from "src/components/MuiComponentSamples"
+import LbComponentSamples from "src/components/LbComponentSamples"
 import PreviewWindow from "src/components/PreviewWindow"
 import SavedThemes from "src/components/SavedThemes/SavedThemes"
 import ThemeWrapper from "src/components/ThemeWrapper"

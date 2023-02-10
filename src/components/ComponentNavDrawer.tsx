@@ -11,9 +11,8 @@ import {
 } from "@mui/material"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import componentSamples, {
-  LbComponents,
-} from "src/components/MuiComponentSamples/Samples"
+import componentSamples from "src/components/MuiComponentSamples/Samples"
+import LbComponents from "src/components/LbComponentSamples/Samples"
 import { setActiveTab } from "src/state/actions"
 import { RootState } from "src/state/types"
 

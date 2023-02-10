@@ -25,7 +25,6 @@ import TextFieldExample from "./TextField"
 import TableExample from "./Table"
 import ListExample from "./List"
 import TooltipExample from "./Tooltip"
-import LbSnackbar from "./LbSnackbar"
 
 // items skipped for now:
 // Button Group
@@ -34,15 +33,6 @@ import LbSnackbar from "./LbSnackbar"
 // Drawer
 
 // Alphabetically sorted list of all Material-UI component examples
-export const LbComponents = [
-  {
-    id: "LbSnackbar",
-    title: "LbSnackbar",
-    component: <LbSnackbar />,
-    docs: "http://192.168.68.82:6006/?path=/story/example-snackbar--playground",
-  },
-]
-
 export default [
   {
     id: "Accordion",

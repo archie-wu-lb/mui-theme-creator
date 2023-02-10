@@ -54,6 +54,11 @@ export const defaultThemeOptions: ThemeOptions = {
     secondary: {
       main: "#f50057", // the default secondary color
     },
+    border: {
+      main: "#4b546a",
+      light: "#60c2ff",
+      dark: "#62657b",
+    },
   },
 }
 
