@@ -27,9 +27,12 @@ jobs:
     - name: npm install
       run: |
         npm install
+    - name: set git
+      run: |
+        git config --local user.name $USER_NAME
+        git config --local user.email $USER_EMAIL
+        git status
     - name: npm run deploy
       run: |
         npm run deploy
-    - name: complete
-      run: |
         echo 🤘 deploy gh-pages complete.
