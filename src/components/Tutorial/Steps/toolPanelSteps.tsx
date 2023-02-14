@@ -5,6 +5,7 @@ import {
   fontToolsId,
   typographyToolsId,
   snippetToolsId,
+  componentToolsId,
 } from "src/components/ThemeTools/ThemeTools"
 import { toolPanelId } from "src/components/ThemeTools/ToolPanel"
 import TutorialTooltip from "../TutorialTooltip"
@@ -19,11 +20,17 @@ import TutorialCard from "../TutorialCard"
 
 const ToolPanelTutorialStep = () => {
   return (
-    <TutorialTooltip anchorId={toolPanelId} placement="top">
-      <Typography variant="h5">This is the Theme Tool Panel</Typography>
-      <Typography>
-        Controls here will help you quickly edit the theme
-      </Typography>
+    <TutorialTooltip
+      anchorId={toolPanelId}
+      placement="top"
+      title="ToolPanelTutorialStep"
+    >
+      <>
+        <Typography variant="h5">This is the Theme Tool Panel</Typography>
+        <Typography>
+          Controls here will help you quickly edit the theme
+        </Typography>
+      </>
     </TutorialTooltip>
   )
 }
@@ -31,7 +38,11 @@ const ToolPanelTutorialStep = () => {
 const PaletteTutorialStep = () => {
   return (
     <>
-      <TutorialTooltip anchorId={paletteToolsId} placement="top">
+      <TutorialTooltip
+        anchorId={paletteToolsId}
+        placement="top"
+        title="PaletteTutorialStep"
+      >
         <Typography>
           Use color pickers to set theme <code>palette</code> options
         </Typography>
@@ -73,11 +84,27 @@ const PaletteTutorialStep = () => {
   )
 }
 
+const ComponentTutorialStep = () => {
+  return (
+    <TutorialTooltip
+      anchorId={componentToolsId}
+      placement="top"
+      title="ComponentTutorialStep"
+    >
+      <Typography>Custom default component</Typography>
+    </TutorialTooltip>
+  )
+}
+
 const FontTutorialStep = () => {
   return (
     <>
-      <TutorialTooltip anchorId={fontToolsId} placement="top">
-        Load fonts for Typography elements
+      <TutorialTooltip
+        anchorId={fontToolsId}
+        placement="top"
+        title="FontTutorialStep"
+      >
+        <Typography> Load fonts for Typography elements</Typography>
       </TutorialTooltip>
       <TutorialCard title="Font Loading Tools">
         <Typography paragraph>
@@ -111,8 +138,12 @@ const FontTutorialStep = () => {
 const TypographyTutorialStep = () => {
   return (
     <>
-      <TutorialTooltip anchorId={typographyToolsId} placement="top">
-        View and modify Typography options
+      <TutorialTooltip
+        anchorId={typographyToolsId}
+        placement="top"
+        title="TypographyTutorialStep"
+      >
+        <Typography>View and modify Typography options</Typography>
       </TutorialTooltip>
       <TutorialCard title="Typography Tools">
         <Typography paragraph>
@@ -134,8 +165,14 @@ const TypographyTutorialStep = () => {
 const SnippetsTutorialStep = () => {
   return (
     <>
-      <TutorialTooltip anchorId={snippetToolsId} placement="top">
-        Add preset snippets for styles or component props
+      <TutorialTooltip
+        anchorId={snippetToolsId}
+        placement="top"
+        title="SnippetsTutorialStep"
+      >
+        <Typography>
+          Add preset snippets for styles or component props
+        </Typography>
       </TutorialTooltip>
       <TutorialCard title="Snippet Tools">
         <Typography paragraph>
@@ -157,6 +194,7 @@ const SnippetsTutorialStep = () => {
 export default [
   ToolPanelTutorialStep,
   PaletteTutorialStep,
+  ComponentTutorialStep,
   FontTutorialStep,
   TypographyTutorialStep,
   SnippetsTutorialStep,

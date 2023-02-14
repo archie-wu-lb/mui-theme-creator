@@ -60,6 +60,30 @@ export const defaultThemeOptions: ThemeOptions = {
       dark: "#62657b",
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        sizeSmall: {
+          paddingTop: "4px",
+          paddingRight: "10px",
+          paddingBottom: "4px",
+          paddingLeft: "10px",
+        },
+        sizeMedium: {
+          paddingTop: "6px",
+          paddingRight: "16px",
+          paddingBottom: "6px",
+          paddingLeft: "16px",
+        },
+        sizeLarge: {
+          paddingTop: "8px",
+          paddingRight: "22px",
+          paddingBottom: "8px",
+          paddingLeft: "22px",
+        },
+      },
+    },
+  },
 }
 
 export const defaultTheme: Theme = createTheme()

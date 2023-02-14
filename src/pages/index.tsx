@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import React from "react"
+import React, { useState } from "react"
 import { HelmetProvider } from "react-helmet-async"
 import ComponentNavDrawer from "src/components/ComponentNavDrawer"
 import ErrorBoundary from "src/components/ErrorBoundary"
@@ -9,65 +9,68 @@ import MainWindow from "src/components/MainWindow"
 import SmallScreenWarning from "src/components/SmallScreenWarning"
 import ThemeConfigDrawer from "src/components/ThemeConfigDrawer"
 import Tutorial from "src/components/Tutorial"
+import Firebase from "src/context/FireBaseContext"
 
 const IndexPage = () => {
   return (
     <HelmetProvider>
-      <Layout>
-        <Box
-          sx={{
-            display: "flex",
-            height: "100vh",
-          }}
-        >
-          <ErrorBoundary>
-            <Box
-              sx={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                minWidth: 0,
-              }}
-            >
-              <Header
-                sx={{
-                  backgroundColor: "#000000",
-                  position: {
-                    md: "static",
-                  },
-                }}
-              />
-
+      <Firebase>
+        <Layout>
+          <Box
+            sx={{
+              display: "flex",
+              height: "100vh",
+            }}
+          >
+            <ErrorBoundary>
               <Box
                 sx={{
                   flex: 1,
                   display: "flex",
-                  minHeight: 0,
+                  flexDirection: "column",
+                  minWidth: 0,
                 }}
               >
-                <ComponentNavDrawer />
+                <Header
+                  sx={{
+                    backgroundColor: "#000000",
+                    position: {
+                      md: "static",
+                    },
+                  }}
+                />
 
                 <Box
-                  component="main"
                   sx={{
-                    minWidth: 0,
-                    minHeight: 0,
                     flex: 1,
                     display: "flex",
-                    flexDirection: "column",
+                    minHeight: 0,
                   }}
                 >
-                  <MainWindow />
+                  <ComponentNavDrawer />
+
+                  <Box
+                    component="main"
+                    sx={{
+                      minWidth: 0,
+                      minHeight: 0,
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <MainWindow />
+                  </Box>
                 </Box>
               </Box>
-            </Box>
 
-            <ThemeConfigDrawer />
-          </ErrorBoundary>
-        </Box>
-        <SmallScreenWarning />
-        <Tutorial />
-      </Layout>
+              <ThemeConfigDrawer />
+            </ErrorBoundary>
+          </Box>
+          <SmallScreenWarning />
+          <Tutorial />
+        </Layout>
+      </Firebase>
     </HelmetProvider>
   )
 }

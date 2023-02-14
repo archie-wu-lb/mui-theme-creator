@@ -2,6 +2,7 @@ import FontIcon from "@mui/icons-material/FontDownload"
 import PaletteIcon from "@mui/icons-material/Palette"
 import SnippetsIcon from "@mui/icons-material/PlaylistAdd"
 import TypographyIcon from "@mui/icons-material/TextFields"
+import ComponentIcon from "@mui/icons-material/ToggleOff"
 import { Box } from "@mui/material"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
@@ -10,9 +11,11 @@ import FontTools from "./FontTools/FontTools"
 import PaletteTools from "./PaletteTools/PaletteTools"
 import SnippetTools from "./SnippetTools"
 import ToolPanel from "./ToolPanel"
+import ComponentTools from "./ComponentTools/ComponentTools"
 import TypographyTools from "./TypographyTools/TypographyTools"
 
 export const paletteToolsId = "palette-tools-nav"
+export const componentToolsId = "component-tools-nav"
 export const fontToolsId = "font-tools-nav"
 export const typographyToolsId = "typography-tools-nav"
 export const snippetToolsId = "snippet-tools-nav"
@@ -28,6 +31,12 @@ const toolPanels: Array<{
     icon: <PaletteIcon />,
     tools: PaletteTools,
     id: paletteToolsId,
+  },
+  {
+    label: "Component",
+    icon: <ComponentIcon />,
+    tools: ComponentTools,
+    id: componentToolsId,
   },
   {
     label: "Fonts",

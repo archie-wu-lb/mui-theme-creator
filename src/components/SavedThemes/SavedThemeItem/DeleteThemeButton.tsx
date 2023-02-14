@@ -10,11 +10,21 @@ import { removeSavedTheme } from "src/state/actions"
 import DeleteIcon from "@mui/icons-material/Delete"
 import { DialogContentText, Typography } from "@mui/material"
 
-function DeleteThemeButton({ themeId, themeName, disabled }) {
+interface DeleteThemeButtonProps {
+  themeId: string
+  themeName: string
+  disabled: boolean
+}
+
+function DeleteThemeButton({
+  themeId,
+  themeName,
+  disabled,
+}: DeleteThemeButtonProps) {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
 
-  const handleClickOpen = event => {
+  const handleClickOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
     setOpen(true)
   }
@@ -24,7 +34,7 @@ function DeleteThemeButton({ themeId, themeName, disabled }) {
   }
 
   const handleDelete = useCallback(
-    event => {
+    (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       dispatch(removeSavedTheme(themeId))
       handleClose()

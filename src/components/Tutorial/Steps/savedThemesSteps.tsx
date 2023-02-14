@@ -13,7 +13,11 @@ import { useSwitchToTab } from "./hooks"
 const SavedThemesTabTutorialStep = () => {
   useSwitchToTab("saved")
   return (
-    <TutorialTooltip anchorId={savedThemesTabId} placement="bottom">
+    <TutorialTooltip
+      anchorId={savedThemesTabId}
+      placement="bottom"
+      title="SavedThemesTabTutorialStep"
+    >
       <Typography variant="h5">This is the Saved Themes Tab</Typography>
     </TutorialTooltip>
   )
@@ -24,15 +28,29 @@ const AddNewThemesTutorialStep = () => {
   // useSwitchToTab("saved")
   return (
     <>
-      <TutorialTooltip anchorId={savedThemeListId} placement="right">
-        <Typography>Switch between your saved themes here.</Typography>
-        <Typography>You can rename, or delete them here too</Typography>
+      <TutorialTooltip
+        anchorId={savedThemeListId}
+        placement="right"
+        title="savedThemeList"
+      >
+        <>
+          <Typography>Switch between your saved themes here.</Typography>
+          <Typography>You can rename, or delete them here too</Typography>
+        </>
       </TutorialTooltip>
-      <TutorialTooltip anchorId={defaultThemesId} placement="bottom">
-        Add sample themes here to check them out
+      <TutorialTooltip
+        anchorId={defaultThemesId}
+        placement="bottom"
+        title="defaultThemes"
+      >
+        <Typography> Add sample themes here to check them out</Typography>
       </TutorialTooltip>
-      <TutorialTooltip anchorId={addThemeButtonId} placement="top">
-        Add a new blank theme here
+      <TutorialTooltip
+        anchorId={addThemeButtonId}
+        placement="top"
+        title="addThemeButton"
+      >
+        <Typography>Add a new blank theme here</Typography>
       </TutorialTooltip>
     </>
   )
