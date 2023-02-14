@@ -14,63 +14,61 @@ import Firebase from "src/context/FireBaseContext"
 const IndexPage = () => {
   return (
     <HelmetProvider>
-      <Firebase>
-        <Layout>
-          <Box
-            sx={{
-              display: "flex",
-              height: "100vh",
-            }}
-          >
-            <ErrorBoundary>
+      <Layout>
+        <Box
+          sx={{
+            display: "flex",
+            height: "100vh",
+          }}
+        >
+          <ErrorBoundary>
+            <Box
+              sx={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                minWidth: 0,
+              }}
+            >
+              <Header
+                sx={{
+                  backgroundColor: "#000000",
+                  position: {
+                    md: "static",
+                  },
+                }}
+              />
+
               <Box
                 sx={{
                   flex: 1,
                   display: "flex",
-                  flexDirection: "column",
-                  minWidth: 0,
+                  minHeight: 0,
                 }}
               >
-                <Header
-                  sx={{
-                    backgroundColor: "#000000",
-                    position: {
-                      md: "static",
-                    },
-                  }}
-                />
+                <ComponentNavDrawer />
 
                 <Box
+                  component="main"
                   sx={{
+                    minWidth: 0,
+                    minHeight: 0,
                     flex: 1,
                     display: "flex",
-                    minHeight: 0,
+                    flexDirection: "column",
                   }}
                 >
-                  <ComponentNavDrawer />
-
-                  <Box
-                    component="main"
-                    sx={{
-                      minWidth: 0,
-                      minHeight: 0,
-                      flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <MainWindow />
-                  </Box>
+                  <MainWindow />
                 </Box>
               </Box>
+            </Box>
 
-              <ThemeConfigDrawer />
-            </ErrorBoundary>
-          </Box>
-          <SmallScreenWarning />
-          <Tutorial />
-        </Layout>
-      </Firebase>
+            <ThemeConfigDrawer />
+          </ErrorBoundary>
+        </Box>
+        <SmallScreenWarning />
+        <Tutorial />
+      </Layout>
     </HelmetProvider>
   )
 }
