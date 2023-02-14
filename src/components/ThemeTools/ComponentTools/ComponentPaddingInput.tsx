@@ -29,15 +29,15 @@ export default function ComponentPaddingInput({ label, path }: Props) {
       if (right === left) {
         if (top === bottom) {
           if (top === right) {
-            value = `${top}px`
+            value = `${top}`
           } else {
-            value = `${top}px ${right}px`
+            value = `${top} ${right}`
           }
         } else {
-          value = `${top}px ${right}px ${bottom}px`
+          value = `${top} ${right} ${bottom}`
         }
       } else {
-        value = `${top}px ${right}px ${bottom}px ${left}px`
+        value = `${top} ${right} ${bottom} ${left}`
       }
       dispatch(setThemeOption(path, value))
     }
@@ -66,7 +66,6 @@ export default function ComponentPaddingInput({ label, path }: Props) {
   const setDefaultValue = () => {
     let themeValue = themeValueInfo.value || ""
     if (themeValue) {
-      themeValue = themeValue.replaceAll("px", "")
       themeValue = themeValue.split(" ")
       if (themeValue.length === 4) {
         setPadding({

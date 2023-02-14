@@ -1,6 +1,7 @@
 import React from "react"
 import { Typography, AccordionSummary, Accordion } from "@mui/material"
 import ComponentSubType from "./ComponentSubType"
+import ComponentInput from "./ComponentInput"
 
 const buttonSize = ["sizeSmall", "sizeMedium", "sizeLarge"]
 export default function Tools() {
@@ -11,6 +12,11 @@ export default function Tools() {
           <Typography variant="body2">Button</Typography>
         </AccordionSummary>
       </Accordion>
+      <ComponentSubType
+        title="borderRadius"
+        path="components.MuiButton.styleOverrides.root"
+        paletteValues={[["borderRadius", "borderRadius"]]}
+      />
       {buttonSize.map((size: string) => (
         <ComponentSubType
           key={`button-${size}`}
