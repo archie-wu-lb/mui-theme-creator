@@ -9,6 +9,7 @@ import {
 import React from "react"
 import { useThemeValue } from "src/state/selectors"
 import ComponentInput from "./ComponentInput"
+import ComponentPaddingInput from "./ComponentPaddingInput"
 
 interface ComponentSubTypeProps {
   title: string
@@ -47,11 +48,16 @@ export default function ComponentSubType({
           }}
         >
           {paletteValues.map(([name, subPath]) => (
-            <ComponentInput
-              key={`${title}-${name}`}
-              label={name}
-              path={`${path}.${subPath}`}
-            />
+            <Box key={`${title}-${name}`}>
+              {name === "padding" ? (
+                <ComponentPaddingInput
+                  label={name}
+                  path={`${path}.${subPath}`}
+                />
+              ) : (
+                <ComponentInput label={name} path={`${path}.${subPath}`} />
+              )}
+            </Box>
           ))}
         </AccordionDetails>
       </Accordion>

@@ -16,12 +16,7 @@ export default function Tools() {
           key={`button-${size}`}
           title={size}
           path={`components.MuiButton.styleOverrides.${size}`}
-          paletteValues={[
-            ["paddingTop", "paddingTop"],
-            ["paddingRight", "paddingRight"],
-            ["paddingBottom", "paddingBottom"],
-            ["paddingLeft", "paddingLeft"],
-          ]}
+          paletteValues={[["padding", "padding"]]}
         />
       ))}
 

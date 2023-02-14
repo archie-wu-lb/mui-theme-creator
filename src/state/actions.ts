@@ -16,7 +16,8 @@ import { canSave } from "./selectors"
  * @param path - the path to remove from the themeOptions
  */
 export const removeThemeOption =
-  (path: string) => (dispatch: Function, getState: Function) => {
+  (path: string, setDefault?: boolean) =>
+  (dispatch: Function, getState: Function) => {
     if (checkIfUserAllowsOverwrite(getState())) {
       let updatedThemeOptions: ThemeOptions
 
@@ -25,7 +26,7 @@ export const removeThemeOption =
 
       // paths ending in "main" must be declared
       // replace with the value from the default Theme object
-      if (path.endsWith("main")) {
+      if (path.endsWith("main") || setDefault) {
         const defaultValueForPath = getByPath(defaultTheme, path)
         updatedThemeOptions = setByPath(
           getState().themeOptions,
